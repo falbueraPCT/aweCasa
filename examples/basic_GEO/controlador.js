@@ -105,7 +105,7 @@ window.addEventListener('load', function() {
        
                     var scale = 10000;
                     
-                    awe.pois.add({ id:'amposta', position: { x: poi1_lat*100000, y: 0, z: -1* poi1_lng*100000 } });
+                    awe.pois.add({ id:'amposta', position: { x: poi1_lat*100000, y: 0, z: poi1_lng*100000 } });
                     
                     awe.projections.add({ 
                         id:'testAmposta', 
