@@ -66,32 +66,21 @@ window.addEventListener('load', function() {
                         });
                     }, false);
                     
-                    
-                    
-                    // add some points of interest (poi) for each of the compass points
-                    awe.pois.add({ id:'north', position: { x:0, y:0, z:200 } });
-                    awe.pois.add({ id:'north_east', position: { x:200, y:0, z:200 } });
-                    awe.pois.add({ id:'east', position: { x:200, y:0, z:0 } });
-                    awe.pois.add({ id:'south_east', position: { x:200, y:0, z:-200 } });
-                    awe.pois.add({ id:'south', position: { x:0, y:0, z:-200 } });
-                    awe.pois.add({ id:'south_west', position: { x:-200, y:0, z:-200 } });
-                    awe.pois.add({ id:'west', position: { x:-200, y:0, z:0 } });
-                    awe.pois.add({ id:'north_west', position: { x:-200, y:0, z:200 } });
-                    
                     var lat;
                     var lng;
                     
                     // test coor 
-                    lat = 41.104648;
-                    lng = 1.145089;       
-                    
-                    console.log('pos de geo.js --> ' + pos.lat + ' ' + pos.lng);
+                    lat = 40.705411;
+                    lng = 0.583284;    
                     
                     var current_lat;
                     var current_lng;
                     
                     current_lat = pos.lat;
-                    current_lng = pos.lng;                    
+                    current_lng = pos.lng;            
+                    
+                    console.log('POS LAT CONTROLADOR.JS --> ' + current_lat);
+                    console.log('POS LAT CONTROLADOR.JS --> ' + current_lng);
        
                     var scale = 10000;
                     awe.pois.add({ id:'amposta', position: { x: lat * scale, y: 0, z: lng * scale } });
