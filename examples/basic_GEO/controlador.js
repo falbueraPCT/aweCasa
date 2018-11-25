@@ -82,8 +82,8 @@ window.addEventListener('load', function() {
                     console.log('POS LAT USER CONTROLADOR.JS --> ' + pos.lat);
                     console.log('POS LNG USER CONTROLADOR.JS --> ' + pos.lng);
                     
-                    p1 = LatLon(poi1_lat, poi1_lng);
-                    p2 = LatLon(pos.lat, pos.lng);
+                    p1 = LatLon(pos.lat, pos.lng);
+                    p2 = LatLon(poi1_lat, poi1_lng);
                     dist = p1.distanceTo(p2);
                     brng1 = p1.bearingTo(p2);
                     brng2 = p1.finalBearingTo(p2);
