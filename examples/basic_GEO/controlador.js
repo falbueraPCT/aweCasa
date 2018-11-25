@@ -101,11 +101,21 @@ window.addEventListener('load', function() {
                     console.log('brng1 (Dms.toBrng(brng1, degFmt)) CONTROLADOR.js --> ' + (Dms.toBrng(brng1, degFmt)));
                     console.log('brng2 (Dms.toBrng(brng2, degFmt)) CONTROLADOR.js --> ' + (Dms.toBrng(brng2, degFmt)));
                     console.log('pMid (pMid.toString(degFmt)) CONTROLADOR.js --> ' + (pMid.toString(degFmt)));
-              
-       
+                                  
+                    var xyz_user = project(pos.lat, pos.lng, 0.0);
+                    var xyz_poi = project(poi1_lat, poi1_lng, 0.0);
+                    console.log('xyz_user!!!!!! --> ' + xyz_user);
+                    console.log('xyz_poi!!!!!! --> ' + xyz_poi);
+                    
+                    var gps_user = unproject(xyz_user[0], xyz_user[1], xyz_user[2]);
+                    var gps_poi = unproject(xyz_poi[0], xyz_poi[1], xyz_poi[2]);
+                    console.log('GPS user!!!!!! --> ' + gps_user);
+                    console.log('GPS poi!!!!!! --> ' + gps_poi);
+
                     var scale = 10000;
                     
-                    awe.pois.add({ id:'amposta', position: { x: poi1_lat*100000, y: 0, z: poi1_lng*100000 } });
+                    //awe.pois.add({ id:'amposta', position: { x: poi1_lat*100000, y: 0, z: poi1_lng*100000 } });
+                    awe.pois.add({ id:'amposta', position: { x: xyz_poi[0], y: 0, z: -1 * xyz_poi[1] } });
                     
                     awe.projections.add({ 
                         id:'testAmposta', 
@@ -115,7 +125,8 @@ window.addEventListener('load', function() {
                     { poi_id: 'amposta' });
                     
                     //if (new_place){
-                        awe.povs.update({ data: { position: { x: pos.lat*100000, y: 0, z: pos.lng*100000 } }, where: { id: 'default' } });
+                    //awe.povs.update({ data: { position: { x: pos.lat*100000, y: 0, z: pos.lng*100000 } }, where: { id: 'default' } });
+                    awe.povs.update({ data: { position: { x: xyz_user[0], y: 0, z: -1 * xyz_user[1] } }, where: { id: 'default' } });
                     //    new_place = false;
                     //}
                     

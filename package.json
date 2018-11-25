@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/awe-media/awe.js/issues"
   },
-  "homepage": "https://github.com/awe-media/awe.js#readme"
+  "homepage": "https://github.com/awe-media/awe.js#readme",
+  "dependencies": {
+    "ecef-projector": "^1.0.1"
+  }
 }
