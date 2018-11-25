@@ -4,7 +4,9 @@
     <title>AWE basic AR demo</title>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
     <meta charset="utf-8"/>
-
+    <script async defer Src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDx7GDvySBEw9cOFx2DLcbcGpfoyvFvegA&callback=initMap"></script>
+    <script defer src="//cdn.rawgit.com/chrisveness/geodesy/v1.1.2/latlon-spherical.js"></script>
+    <script defer src="//cdn.rawgit.com/chrisveness/geodesy/v1.1.2/dms.js"></script>
         <style>
             /* Always set the map height explicitly to define the size of the div
             * element that contains the map. */
@@ -34,19 +36,25 @@
             }
         </style>
 
+            
+        
+       
     </head>
 
     <body>
 
-        <div style="height:75%;">
+        <div style="height:50%;">
             <div id="container"></div>
         </div>
         <div style="height:25%;">
             <div id="map"></div>
         </div>
+        <div style="height:25%;">
+            <div id="map-ortho-dist-canvas"></div>
+        </div>        
         
         <script>
-            var pos;
+            var userPos;
             var new_place;
         </script>
 
@@ -99,6 +107,6 @@
         <script type="text/javascript" src="../../js/awe-loader.js"></script>
         <script type="text/javascript" src="controlador.js"></script>
         <script type="text/javascript" src="geolocalizacion.js"></script>
-        <script async defer Src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDx7GDvySBEw9cOFx2DLcbcGpfoyvFvegA&callback=initMap"></script>
+        
     </body>
 </html>
