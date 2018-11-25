@@ -1,4 +1,13 @@
-  
+var poi1_lat;
+var poi1_lng;
+
+var p1;
+var p2;
+var dist;
+var brng1;
+var brng2;
+var pMid;
+
 window.addEventListener('load', function() {
     
     // initialize awe after page loads
@@ -66,21 +75,33 @@ window.addEventListener('load', function() {
                         });
                     }, false);
                     
-                    var lat;
-                    var lng;
+                    // xiribecs
+                    poi1_lat = 40.705411;
+                    poi1_lng = 0.583284;         
                     
-                    // test coor 
-                    lat = 40.705411;
-                    lng = 0.583284;    
+                    console.log('POS LAT USER CONTROLADOR.JS --> ' + pos.lat);
+                    console.log('POS LNG USER CONTROLADOR.JS --> ' + pos.lng);
                     
-                    var current_lat;
-                    var current_lng;
+                    p1 = LatLon(poi1_lat, poi1_lng);
+                    p2 = LatLon(pos.lat, pos.lng);
+                    dist = p1.distanceTo(p2);
+                    brng1 = p1.bearingTo(p2);
+                    brng2 = p1.finalBearingTo(p2);
+                    pMid = p1.midpointTo(p2);
                     
-                    current_lat = pos.lat;
-                    current_lng = pos.lng;            
-                    
-                    console.log('POS LAT CONTROLADOR.JS --> ' + current_lat);
-                    console.log('POS LAT CONTROLADOR.JS --> ' + current_lng);
+                    console.log('p1 POI CONTROLADOR.JS --> ' + p1);
+                    console.log('p2 USER CONTROLADOR.JS --> ' + p2);
+                    console.log('dist CONTROLADOR.JS --> ' + dist);
+                    console.log('brng1 CONTROLADOR.JS --> ' + brng1);
+                    console.log('brng2 CONTROLADOR.JS --> ' + brng2);
+                    console.log('pMid CONTROLADOR.JS --> ' + pMid);
+                     //var degFmt = 'latlon-degree-format';
+                     var degFmt = 'dms';
+                    console.log('distancia (dist/1000).toPrecision(4) CONTROLADOR.js --> ' + (dist/1000).toPrecision(4));
+                    console.log('brng1 (Dms.toBrng(brng1, degFmt)) CONTROLADOR.js --> ' + (Dms.toBrng(brng1, degFmt)));
+                    console.log('brng2 (Dms.toBrng(brng2, degFmt)) CONTROLADOR.js --> ' + (Dms.toBrng(brng2, degFmt)));
+                    console.log('pMid (pMid.toString(degFmt)) CONTROLADOR.js --> ' + (pMid.toString(degFmt)));
+              
        
                     var scale = 10000;
                     awe.pois.add({ id:'amposta', position: { x: lat * scale, y: 0, z: lng * scale } });
