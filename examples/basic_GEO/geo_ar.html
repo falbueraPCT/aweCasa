@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>AWE basic AR demo</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta charset="utf-8"/>
+
+        <style>
+            /* Always set the map height explicitly to define the size of the div
+            * element that contains the map. */
+            #map {
+                height: 100%;
+            }
+            /* Optional: Makes the sample page fill the window. */
+            html, body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+
+        <style type="text/css">
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            #container {
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                overflow: hidden;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <div style="height:75%;">
+            <div id="container"></div>
+        </div>
+        <div style="height:25%;">
+            <div id="map"></div>
+        </div>
+        
+        <script>
+            var pos;
+            var new_place;
+        </script>
+
+        <script>
+            // Note: This example requires that you consent to location sharing when
+            // prompted by your browser. If you see the error "The Geolocation service
+            // failed.", it means you probably did not give permission for the browser to
+            // locate you.
+
+            // **********************************************************************************************
+            /*
+            var map, infoWindow;
+            function initMap() {
+
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: {lat: -34.397, lng: 150.644},
+                    zoom: 6
+                });
+
+                infoWindow = new google.maps.InfoWindow;
+
+                // Try HTML5 geolocation.
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function(position) {                    
+                        var pos = { lat: position.coords.latitude, lng: position.coords.longitude };
+                        infoWindow.setPosition(pos);
+                        infoWindow.setContent('Location found.');
+                        infoWindow.open(map);
+                        map.setCenter(pos);                    
+                    }, function() {
+                        handleLocationError(true, infoWindow, map.getCenter());
+                    });
+                } else {
+                    // Browser doesn't support Geolocation
+                    handleLocationError(false, infoWindow, map.getCenter());
+                }
+            }
+
+            function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+                infoWindow.setPosition(pos);
+                infoWindow.setContent(browserHasGeolocation ? 'Error: The Geolocation service failed.' : 'Error: Your browser doesn\'t support geolocation.');
+                infoWindow.open(map);
+            }
+            */
+            // **********************************************************************************************
+
+        </script>
+
+        <script type="text/javascript" src="../../js/awe-v8.js"></script>
+        <script type="text/javascript" src="../../js/awe-loader.js"></script>
+        <script type="text/javascript" src="controlador.js"></script>
+        <script type="text/javascript" src="geolocalizacion.js"></script>
+        <script async defer Src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDx7GDvySBEw9cOFx2DLcbcGpfoyvFvegA&callback=initMap"></script>
+    </body>
+</html>
