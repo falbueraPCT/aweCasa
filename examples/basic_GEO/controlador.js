@@ -105,7 +105,7 @@ window.addEventListener('load', function() {
        
                     var scale = 10000;
                     
-                    awe.pois.add({ id:'amposta', position: { x: poi1_lat, y: 0, z: poi1_lng } });
+                    awe.pois.add({ id:'amposta', position: { x: poi1_lat*dist, y: 0, z: poi1_lng*dist } });
                     
                     awe.projections.add({ 
                         id:'testAmposta', 
@@ -115,7 +115,7 @@ window.addEventListener('load', function() {
                     { poi_id: 'amposta' });
                     
                     //if (new_place){
-                        awe.povs.update({ data: { position: { x: pos.lat, y: 0, z: pos.lng } }, where: { id: 'default' } });
+                        awe.povs.update({ data: { position: { x: pos.lat*dist, y: 0, z: pos.lng*dist } }, where: { id: 'default' } });
                     //    new_place = false;
                     //}
                     
