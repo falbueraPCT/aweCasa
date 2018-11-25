@@ -105,17 +105,17 @@ window.addEventListener('load', function() {
        
                     var scale = 10000;
                     
-                    awe.pois.add({ id:'amposta', position: { x: poi1_lat*dist, y: 0, z: poi1_lng*dist } });
+                    awe.pois.add({ id:'amposta', position: { x: poi1_lat*10000, y: 0, z: poi1_lng*10000 } });
                     
                     awe.projections.add({ 
                         id:'testAmposta', 
-                        geometry:{ shape:'cube', x:5, y:5, z:5 }, 
+                        geometry:{ shape:'cube', x:50, y:50, z:50 }, 
                         rotation:{ x:30, y:30, z:0 },
                         material:{ type: 'phong', color:0x0000FF } }, 
                     { poi_id: 'amposta' });
                     
                     //if (new_place){
-                        awe.povs.update({ data: { position: { x: pos.lat*dist, y: 0, z: pos.lng*dist } }, where: { id: 'default' } });
+                        awe.povs.update({ data: { position: { x: pos.lat*10000, y: 0, z: pos.lng*10000 } }, where: { id: 'default' } });
                     //    new_place = false;
                     //}
                     
