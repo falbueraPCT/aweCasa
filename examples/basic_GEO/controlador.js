@@ -109,7 +109,7 @@ window.addEventListener('load', function() {
                     
                     awe.projections.add({ 
                         id:'testAmposta', 
-                        geometry:{ shape:'cube', x:50, y:50, z:50 }, 
+                        geometry:{ shape:'cube', x:5, y:5, z:5 }, 
                         rotation:{ x:30, y:30, z:0 },
                         material:{ type: 'phong', color:0x0000FF } }, 
                     { poi_id: 'amposta' });
