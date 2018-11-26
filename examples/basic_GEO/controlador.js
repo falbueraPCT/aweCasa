@@ -186,7 +186,7 @@ window.addEventListener('load', function() {
                             font_url : "Times_Bold.js",   /// REQUIRED - currently must be .js not .json
                             parameters : {
                                height : "5", // depth of the extruded text
-                               size : "30"
+                               size : "25"
                             },
                             shape : "text", 
                             text : (dist1/1000).toPrecision(4) + " KM"// put your text here
@@ -247,7 +247,7 @@ window.addEventListener('load', function() {
                             font_url : "Times_Bold.js",   /// REQUIRED - currently must be .js not .json
                             parameters : {
                                height : "5", // depth of the extruded text
-                               size : "30"
+                               size : "25"
                             },
                             shape : "text", 
                             text : (dist2/1000).toPrecision(4) + " KM"// put your text here
