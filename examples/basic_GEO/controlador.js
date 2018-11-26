@@ -182,6 +182,11 @@ window.addEventListener('load', function() {
                     salto_ctrl = salto_ctrl + 1;
                     console.log('salto_ctrl --> ' + salto_ctrl);
                     
+                    if(new_place){
+                        console.log('SALTO SALTO SALTO');    
+                        new_place = false;
+                    }
+                    
                     awe.projections.add({ 
                         id:'id_decathlon_vilaseca1', 
                         //geometry:{ shape:'cube', x:50, y:50, z:50 }, 
