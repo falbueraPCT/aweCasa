@@ -158,7 +158,10 @@ window.addEventListener('load', function() {
                     awe.povs.update({ data: { position: { x: xyz_user[0], y: 0, z: -1 * xyz_user[1] } }, where: { id: 'default' } });
                     //    new_place = false;
                     //}
-                    
+                    var projection_child = awe.projections.view('s').get_mesh().children[0];
+                    var projection_params = projection_child.geometry.parameters.parameters;
+                    projection_child.geometry = new THREE.TextGeometry( "YOUR NEW TEXT HERE", projection_params );
+                    awe.scene_needs_rendering = 1;
                     /*
                    
                     var test1 = awe.pois.list();
