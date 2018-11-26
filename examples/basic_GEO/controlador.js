@@ -224,7 +224,7 @@ window.addEventListener('load', function() {
                       id:'id_decathlon_vilaseca3',
                       geometry:{ shape:'plane', width:350, height:150 },
                       texture: { path: 'pic.png' },
-                      position: {x:0, y:0, z:0},
+                      position: {x:0, y:0, z:50},
                       rotation:{ x:0, y:-60, z:0 },
                       material:{ color:0xFFFFFF, transparent:true }
                     }, { poi_id: 'decathlon_vilaseca' });                          
