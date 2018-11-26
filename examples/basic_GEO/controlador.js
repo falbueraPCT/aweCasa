@@ -132,7 +132,7 @@ window.addEventListener('load', function() {
                             font_url : "Times_Bold.js",   /// REQUIRED - currently must be .js not .json
                             parameters : {
                                height : "5", // depth of the extruded text
-                               size : "50"
+                               size : "25"
                             },
                             shape : "text", 
                             text : "ESCOLA MIRAMAR"
@@ -149,7 +149,7 @@ window.addEventListener('load', function() {
                             font_url : "Times_Bold.js",   /// REQUIRED - currently must be .js not .json
                             parameters : {
                                height : "5", // depth of the extruded text
-                               size : "50"
+                               size : "25"
                             },
                             shape : "text", 
                             text : (dist1/1000).toPrecision(4) + " km"// put your text here
@@ -183,8 +183,8 @@ window.addEventListener('load', function() {
                         geometry : {
                             font_url : "Times_Bold.js",   /// REQUIRED - currently must be .js not .json
                             parameters : {
-                               height : "25", // depth of the extruded text
-                               size : "50"
+                               height : "5", // depth of the extruded text
+                               size : "25"
                             },
                             shape : "text", 
                             text : "DECATHLON VILASECA"
@@ -201,7 +201,7 @@ window.addEventListener('load', function() {
                             font_url : "Times_Bold.js",   /// REQUIRED - currently must be .js not .json
                             parameters : {
                                height : "5", // depth of the extruded text
-                               size : "50"
+                               size : "25"
                             },
                             shape : "text", 
                             text : (dist2/1000).toPrecision(4) + " km"// put your text here
