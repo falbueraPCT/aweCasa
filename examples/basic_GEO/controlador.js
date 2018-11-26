@@ -111,12 +111,12 @@ window.addEventListener('load', function() {
                     console.log('USER pos lng --> ' + pos.lng);
                     console.log('POI 1 pos lat --> ' + poi1_lat);
                     console.log('POI 1 pos lng --> ' + poi1_lng);
-                    console.log('Distància USER-POI1 --> ' + dist1);
-                    console.log('distancia (dist/1000).toPrecision(4) CONTROLADOR.js --> ' + (dist1/1000).toPrecision(4));
+                    console.log('Distància (m) USER-POI1 --> ' + dist1);
+                    console.log('Distància (km) USER-POI1 --> ' + (dist1/1000).toPrecision(4));
                     console.log('POI 2 pos lat --> ' + poi2_lat);
                     console.log('POI 2 pos lng --> ' + poi2_lng);
-                    console.log('Distància USER-POI1 --> ' + dist2);
-                    console.log('distancia (dist/1000).toPrecision(4) CONTROLADOR.js --> ' + (dist2/1000).toPrecision(4));
+                    console.log('Distància (m) USER-POI2 --> ' + dist2);
+                    console.log('Distància (km) USER-POI2 --> ' + (dist2/1000).toPrecision(4));
                     console.log('---------------');
                     
                     awe.pois.add({ id:'escola_miramar', position: { x: xyz_poi1[0], y: 0, z: -1 * xyz_poi1[1] } });
