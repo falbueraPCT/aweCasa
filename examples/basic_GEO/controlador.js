@@ -123,7 +123,7 @@ window.addEventListener('load', function() {
                     console.log('escola miramar : xyz_poi1[0] xyz_poi1[1] xyz_poi1[2]' + xyz_poi1[0] + ' ' + xyz_poi1[1] + ' ' + xyz_poi1[2]);
                     console.log('decathlon vilaseca : xyz_poi2[0] xyz_poi2[1] xyz_poi2[2]' + xyz_poi2[0] + ' ' + xyz_poi2[1] + ' ' + xyz_poi2[2]);
                     
-                    awe.pois.add({ id:'escola_miramar', position: { x: xyz_poi1[0], y: 0, z: -1 * xyz_poi1[1] } });
+                    awe.pois.add({ id:'escola_miramar', position: { x: xyz_poi1[0], y: 0, z:  xyz_poi1[1] } });
                     
                     awe.projections.add({ 
                         id:'id_escola_miramar', 
@@ -157,7 +157,7 @@ window.addEventListener('load', function() {
                     //var scale = 10000;
                     
                     //awe.pois.add({ id:'amposta', position: { x: poi1_lat*100000, y: 0, z: poi1_lng*100000 } });
-                    awe.pois.add({ id:'decathlon_vilaseca', position: { x: xyz_poi2[0], y: 0, z: -1 * xyz_poi2[1] } });
+                    awe.pois.add({ id:'decathlon_vilaseca', position: { x: xyz_poi2[0], y: 0, z:  xyz_poi2[1] } });
                     
                     awe.projections.add({ 
                         id:'id_decathlon_vilaseca', 
@@ -177,7 +177,7 @@ window.addEventListener('load', function() {
                     
                     //if (new_place){
                     //awe.povs.update({ data: { position: { x: pos.lat*100000, y: 0, z: pos.lng*100000 } }, where: { id: 'default' } });
-                    awe.povs.update({ data: { position: { x: xyz_user[0], y: 0, z: -1 * xyz_user[1] } }, where: { id: 'default' } });
+                    awe.povs.update({ data: { position: { x: xyz_user[0], y: 0, z:  xyz_user[1] } }, where: { id: 'default' } });
                     //    new_place = false;
                     //}
                     /*
