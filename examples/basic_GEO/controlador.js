@@ -177,9 +177,9 @@ window.addEventListener('load', function() {
                     
                     awe.projections.add({
                       id:'id_escola_miramar3',
-                      geometry:{ shape:'plane', width:500, height:200 },
+                      geometry:{ shape:'plane', width:350, height:150 },
                       texture: { path: 'pic.png' },
-                      position: {x:-50, y:-50, z:0},
+                      position: {x:200, y:-50, z:0},
                       rotation:{ x:0, y:-60, z:0 },
                       material:{ color:0xFFFFFF, transparent:true }
                     }, { poi_id: 'escola_miramar' });                                        
@@ -222,9 +222,9 @@ window.addEventListener('load', function() {
                                         
                     awe.projections.add({
                       id:'id_decathlon_vilaseca3',
-                      geometry:{ shape:'plane', width:500, height:200 },
+                      geometry:{ shape:'plane', width:350, height:150 },
                       texture: { path: 'pic.png' },
-                      position: {x:-50, y:-50, z:0},
+                      position: {x:200, y:-50, z:0},
                       rotation:{ x:0, y:-60, z:0 },
                       material:{ color:0xFFFFFF, transparent:true }
                     }, { poi_id: 'decathlon_vilaseca' });                          
