@@ -1,12 +1,20 @@
 var poi1_lat;
 var poi1_lng;
+var poi2_lat;
+var poi2_lng;
 
 var p1;
 var p2;
-var dist;
+var p3;
+var dist1;
+var dist2;
 var brng1;
 var brng2;
 var pMid;
+
+var xyz_user;
+var xyz_poi1;
+var xyz_poi2;
 
 window.addEventListener('load', function() {
     
@@ -75,54 +83,75 @@ window.addEventListener('load', function() {
                         });
                     }, false);
                     
-                    // xiribecs
-                    poi1_lat = 40.705411;
-                    poi1_lng = 0.583284;         
+                    // Escola Miramar
+                    poi1_lat = 41.105243;
+                    poi1_lng = 1.145404;   
                     
-                    console.log('POS LAT USER CONTROLADOR.JS --> ' + pos.lat);
-                    console.log('POS LNG USER CONTROLADOR.JS --> ' + pos.lng);
+                    // Decathlon Vilaseca
+                    poi2_lat = 41.096458;
+                    poi2_lng = 1.151421;                      
                     
                     p1 = LatLon(pos.lat, pos.lng);
+                    xyz_user = project(pos.lat, pos.lng, 0.0);
+                    // user - poi1
                     p2 = LatLon(poi1_lat, poi1_lng);
-                    dist = p1.distanceTo(p2);
-                    brng1 = p1.bearingTo(p2);
-                    brng2 = p1.finalBearingTo(p2);
-                    pMid = p1.midpointTo(p2);
+                    dist1 = p1.distanceTo(p2);                   
+                    xyz_poi1 = project(poi1_lat, poi1_lng, 0.0);                    
+                    // user - poi2
+                    p3 = LatLon(poi2_lat, poi2_lng);
+                    dist2 = p1.distanceTo(p3);                   
+                    xyz_poi2 = project(poi2_lat, poi2_lng, 0.0);
+                    //brng1 = p1.bearingTo(p2);
+                    //brng2 = p1.finalBearingTo(p2);
+                    //pMid = p1.midpointTo(p2);
                     
-                    console.log('p1 POI CONTROLADOR.JS --> ' + p1);
-                    console.log('p2 USER CONTROLADOR.JS --> ' + p2);
-                    console.log('dist CONTROLADOR.JS --> ' + dist);
-                    console.log('brng1 CONTROLADOR.JS --> ' + brng1);
-                    console.log('brng2 CONTROLADOR.JS --> ' + brng2);
-                    console.log('pMid CONTROLADOR.JS --> ' + pMid);
-                    //var degFmt = 'latlon-degree-format';
-                    var degFmt = 'dms';
-                    console.log('distancia (dist/1000).toPrecision(4) CONTROLADOR.js --> ' + (dist/1000).toPrecision(4));
-                    console.log('brng1 (Dms.toBrng(brng1, degFmt)) CONTROLADOR.js --> ' + (Dms.toBrng(brng1, degFmt)));
-                    console.log('brng2 (Dms.toBrng(brng2, degFmt)) CONTROLADOR.js --> ' + (Dms.toBrng(brng2, degFmt)));
-                    console.log('pMid (pMid.toString(degFmt)) CONTROLADOR.js --> ' + (pMid.toString(degFmt)));
-                                  
-                    var xyz_user = project(pos.lat, pos.lng, 0.0);
-                    var xyz_poi = project(poi1_lat, poi1_lng, 0.0);
-                    console.log('xyz_user!!!!!! --> ' + xyz_user);
-                    console.log('xyz_poi!!!!!! --> ' + xyz_poi);
+                    console.log('Info USUARI-POI');
+                    console.log('---------------');
+                    console.log('USER pos lat --> ' + pos.lat);
+                    console.log('USER pos lng --> ' + pos.lng);
+                    console.log('POI 1 pos lat --> ' + poi1_lat);
+                    console.log('POI 1 pos lng --> ' + poi1_lng);
+                    console.log('Distància USER-POI1 --> ' + dist1);
+                    console.log('distancia (dist/1000).toPrecision(4) CONTROLADOR.js --> ' + (dist1/1000).toPrecision(4));
+                    console.log('POI 2 pos lat --> ' + poi2_lat);
+                    console.log('POI 2 pos lng --> ' + poi2_lng);
+                    console.log('Distància USER-POI1 --> ' + dist2);
+                    console.log('distancia (dist/1000).toPrecision(4) CONTROLADOR.js --> ' + (dist2/1000).toPrecision(4));
+                    console.log('---------------');
                     
-                    var gps_user = unproject(xyz_user[0], xyz_user[1], xyz_user[2]);
-                    var gps_poi = unproject(xyz_poi[0], xyz_poi[1], xyz_poi[2]);
-                    console.log('GPS user!!!!!! --> ' + gps_user);
-                    console.log('GPS poi!!!!!! --> ' + gps_poi);
-
-                    var scale = 10000;
-                    
-                    //awe.pois.add({ id:'amposta', position: { x: poi1_lat*100000, y: 0, z: poi1_lng*100000 } });
-                    awe.pois.add({ id:'amposta', position: { x: xyz_poi[0], y: 0, z: -1 * xyz_poi[1] } });
+                    awe.pois.add({ id:'escola_miramar', position: { x: xyz_poi1[0], y: 0, z: -1 * xyz_poi1[1] } });
                     
                     awe.projections.add({ 
-                        id:'testAmposta', 
+                        id:'id_escola_miramar', 
                         geometry:{ shape:'cube', x:50, y:50, z:50 }, 
                         rotation:{ x:30, y:30, z:0 },
                         material:{ type: 'phong', color:0x0000FF } }, 
-                    { poi_id: 'amposta' });
+                    { poi_id: 'escola_miramar' });
+                    
+                    //var degFmt = 'latlon-degree-format';
+                    //var degFmt = 'dms';
+                    //console.log('distancia (dist/1000).toPrecision(4) CONTROLADOR.js --> ' + (dist/1000).toPrecision(4));
+                    //console.log('brng1 (Dms.toBrng(brng1, degFmt)) CONTROLADOR.js --> ' + (Dms.toBrng(brng1, degFmt)));
+                    //console.log('brng2 (Dms.toBrng(brng2, degFmt)) CONTROLADOR.js --> ' + (Dms.toBrng(brng2, degFmt)));
+                    //console.log('pMid (pMid.toString(degFmt)) CONTROLADOR.js --> ' + (pMid.toString(degFmt)));
+                                  
+       
+                    
+                    //var gps_user = unproject(xyz_user[0], xyz_user[1], xyz_user[2]);
+                    //var gps_poi = unproject(xyz_poi[0], xyz_poi[1], xyz_poi[2]);
+
+
+                    //var scale = 10000;
+                    
+                    //awe.pois.add({ id:'amposta', position: { x: poi1_lat*100000, y: 0, z: poi1_lng*100000 } });
+                    awe.pois.add({ id:'decathlon_vilaseca', position: { x: xyz_poi2[0], y: 0, z: -1 * xyz_poi2[1] } });
+                    
+                    awe.projections.add({ 
+                        id:'id_decathlon_vilaseca', 
+                        geometry:{ shape:'cube', x:50, y:50, z:50 }, 
+                        rotation:{ x:30, y:30, z:0 },
+                        material:{ type: 'phong', color:0x0000FF } }, 
+                    { poi_id: 'decathlon_vilaseca' });
                     
                     //if (new_place){
                     //awe.povs.update({ data: { position: { x: pos.lat*100000, y: 0, z: pos.lng*100000 } }, where: { id: 'default' } });
@@ -130,7 +159,7 @@ window.addEventListener('load', function() {
                     //    new_place = false;
                     //}
                     
-                    
+                    /*
                    
                     var test1 = awe.pois.list();
                     var test2 = awe.pov().position;
@@ -145,6 +174,7 @@ window.addEventListener('load', function() {
                     console.log('awe.pois.list() --> ' + awe.pois.list());
                     console.log('awe.pov().position --> ' + awe.pov().position);
                     console.log('awe.pov().get_projection_matrix --> ' + awe.pov().get_projection_matrix());
+                    */
 			
                 }
             },
