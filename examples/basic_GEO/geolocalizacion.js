@@ -1,5 +1,5 @@
 var map, infoWindow;
-var salto = 0;
+
 function initMap() {
 
     map = new google.maps.Map(document.getElementById('map'), { center: {lat: -34.397, lng: 150.644}, zoom: 14 });
@@ -24,14 +24,9 @@ function initMap() {
         */
         var watchID = navigator.geolocation.watchPosition(function(position) {
 
-            pos = { lat: position.coords.latitude, lng: position.coords.longitude };
-            //awe.povs.update({ data: { position: { x: pos.lat * 10000, y: 0, z: pos.lng * 10000 } }, where: { id: 'default' } });
-            console.log('POS LAT GEOLOCALIZACION.JS --> ' + pos.lat);
-            console.log('POS LNG GEOLOCALIZACION.JS --> ' + pos.lng);            
+            pos = { lat: position.coords.latitude, lng: position.coords.longitude };        
             infoWindow.setPosition(pos);
             infoWindow.setContent('Ubicació trobada!');
-            salto = salto + 1;
-            console.log('salto geo --> ' + salto);
             infoWindow.open(map);
             map.setCenter(pos); 
         });

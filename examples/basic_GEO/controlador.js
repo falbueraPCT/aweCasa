@@ -109,6 +109,7 @@ window.addEventListener('load', function() {
                         // user - poi2                        
                         dist2 = p1.distanceTo(p3);     
                         
+                        /*
                         console.log('Info USUARI-POI');
                         console.log('---------------');
                         console.log('USER pos lat --> ' + pos.lat);
@@ -122,7 +123,7 @@ window.addEventListener('load', function() {
                         console.log('Distància (m) USER-POI2 --> ' + dist2);
                         console.log('Distància (km) USER-POI2 --> ' + (dist2/1000).toPrecision(4));
                         console.log('---------------');
-                    
+                        */
                         awe.povs.update({ data: { position: { x: xyz_user[0], y: 0, z: -1 * xyz_user[1] } }, where: { id: 'default' } });                                
                         
                         projection_child = awe.projections.view('id_escola_miramar2').get_mesh().children[0];
@@ -137,28 +138,6 @@ window.addEventListener('load', function() {
 
                     });
                     //********************************************
-                    
-                  
-                    
-                    //p1 = LatLon(pos.lat, pos.lng);
-                    //xyz_user = project(pos.lat, pos.lng, 0.0);
-                    // user - poi1
-                    //p2 = LatLon(poi1_lat, poi1_lng);
-                    //dist1 = p1.distanceTo(p2);                   
-                    //xyz_poi1 = project(poi1_lat, poi1_lng, 0.0);                    
-                    // user - poi2
-                    //p3 = LatLon(poi2_lat, poi2_lng);
-                    //dist2 = p1.distanceTo(p3);                   
-                    //xyz_poi2 = project(poi2_lat, poi2_lng, 0.0);
-                    //brng1 = p1.bearingTo(p2);
-                    //brng2 = p1.finalBearingTo(p2);
-                    //pMid = p1.midpointTo(p2);
-                    
-
-                    
-                   // console.log('user camera : xyz_user[0] xyz_user[1] xyz_user[2]' + xyz_user[0] + ' ' + xyz_user[1] + ' ' + xyz_user[2]);
-                    //console.log('escola miramar : xyz_poi1[0] xyz_poi1[1] xyz_poi1[2]' + xyz_poi1[0] + ' ' + xyz_poi1[1] + ' ' + xyz_poi1[2]);
-                    //console.log('decathlon vilaseca : xyz_poi2[0] xyz_poi2[1] xyz_poi2[2]' + xyz_poi2[0] + ' ' + xyz_poi2[1] + ' ' + xyz_poi2[2]);
                     
                     awe.pois.add({ id:'escola_miramar', position: { x: xyz_poi1[0], y: 0, z: -1 * xyz_poi1[1] } });
                     
@@ -203,24 +182,8 @@ window.addEventListener('load', function() {
                       position: {x:150, y:-50, z:0},
                       rotation:{ x:0, y:-60, z:0 },
                       material:{ color:0xFFFFFF, transparent:true }
-                    }, { poi_id: 'escola_miramar' });                    
+                    }, { poi_id: 'escola_miramar' });                                        
                     
-                    //var degFmt = 'latlon-degree-format';
-                    //var degFmt = 'dms';
-                    //console.log('distancia (dist/1000).toPrecision(4) CONTROLADOR.js --> ' + (dist/1000).toPrecision(4));
-                    //console.log('brng1 (Dms.toBrng(brng1, degFmt)) CONTROLADOR.js --> ' + (Dms.toBrng(brng1, degFmt)));
-                    //console.log('brng2 (Dms.toBrng(brng2, degFmt)) CONTROLADOR.js --> ' + (Dms.toBrng(brng2, degFmt)));
-                    //console.log('pMid (pMid.toString(degFmt)) CONTROLADOR.js --> ' + (pMid.toString(degFmt)));
-                                  
-       
-                    
-                    //var gps_user = unproject(xyz_user[0], xyz_user[1], xyz_user[2]);
-                    //var gps_poi = unproject(xyz_poi[0], xyz_poi[1], xyz_poi[2]);
-
-
-                    //var scale = 10000;
-                    
-                    //awe.pois.add({ id:'amposta', position: { x: poi1_lat*100000, y: 0, z: poi1_lng*100000 } });
                     awe.pois.add({ id:'decathlon_vilaseca', position: { x: xyz_poi2[0], y: 0, z: -1 * xyz_poi2[1] } });      
                     
                     awe.projections.add({ 
@@ -256,9 +219,7 @@ window.addEventListener('load', function() {
                         rotation:{ x:0, y:-60, z:0 },
                         material:{ type: 'phong', color:0xF3F3F3 } }, 
                     { poi_id: 'decathlon_vilaseca' });               
-                    
-
-                    
+                                        
                     awe.projections.add({
                       id:'id_decathlon_vilaseca3',
                       geometry:{ shape:'plane', width:500, height:200 },
@@ -267,38 +228,9 @@ window.addEventListener('load', function() {
                       rotation:{ x:0, y:-60, z:0 },
                       material:{ color:0xFFFFFF, transparent:true }
                     }, { poi_id: 'decathlon_vilaseca' });                          
-                    
-                    	
 
-			        
-                    
-                    //if (new_place){
-                    //awe.povs.update({ data: { position: { x: pos.lat*100000, y: 0, z: pos.lng*100000 } }, where: { id: 'default' } });
                     awe.povs.update({ data: { position: { x: xyz_user[0], y: 0, z: -1 * xyz_user[1] } }, where: { id: 'default' } });
-                    //    new_place = false;
-                    //}
-                    /*
-                    var projection_child = awe.projections.view('s').get_mesh().children[0];
-                    var projection_params = projection_child.geometry.parameters.parameters;
-                    projection_child.geometry = new THREE.TextGeometry( "YOUR NEW TEXT HERE", projection_params );
-                    awe.scene_needs_rendering = 1;
-                    */
-                    /*
-                   
-                    var test1 = awe.pois.list();
-                    var test2 = awe.pov().position;
-                    var test3 = awe.pov().get_projection_matrix();
-                    var test4 = awe.pov().get_world_position();
-                    var test5 = awe.povs.list();
-                    var test6 = awe.povs.view();
-                    
-                    console.log("NEAR:"+awe.pov().near);
-                    console.log("FAR:"+awe.pov().far);
-                    
-                    console.log('awe.pois.list() --> ' + awe.pois.list());
-                    console.log('awe.pov().position --> ' + awe.pov().position);
-                    console.log('awe.pov().get_projection_matrix --> ' + awe.pov().get_projection_matrix());
-                    */
+
 			
                 }
             },
