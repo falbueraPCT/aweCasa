@@ -1,5 +1,5 @@
 var map, infoWindow;
-
+var salto = 0;
 function initMap() {
 
     map = new google.maps.Map(document.getElementById('map'), { center: {lat: -34.397, lng: 150.644}, zoom: 14 });
@@ -31,6 +31,8 @@ function initMap() {
             console.log('POS LNG GEOLOCALIZACION.JS --> ' + pos.lng);            
             infoWindow.setPosition(pos);
             infoWindow.setContent('Ubicació trobada!');
+            salto = salto + 1;
+            console.log('salto geo --> ' + salto);
             infoWindow.open(map);
             map.setCenter(pos); 
         });

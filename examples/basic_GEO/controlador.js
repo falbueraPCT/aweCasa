@@ -16,6 +16,8 @@ var xyz_user;
 var xyz_poi1;
 var xyz_poi2;
 
+var salto_ctrl = 0;
+
 window.addEventListener('load', function() {
     
     // initialize awe after page loads
@@ -176,6 +178,9 @@ window.addEventListener('load', function() {
                     
                     //awe.pois.add({ id:'amposta', position: { x: poi1_lat*100000, y: 0, z: poi1_lng*100000 } });
                     awe.pois.add({ id:'decathlon_vilaseca', position: { x: xyz_poi2[0], y: 0, z: -1 * xyz_poi2[1] } });
+                    
+                    salto_ctrl = salto_ctrl + 1;
+                    console.log('salto_ctrl --> ' + salto_ctrl);
                     
                     awe.projections.add({ 
                         id:'id_decathlon_vilaseca1', 
