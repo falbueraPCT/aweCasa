@@ -183,7 +183,7 @@ window.addEventListener('load', function() {
                         geometry : {
                             font_url : "Times_Bold.js",   /// REQUIRED - currently must be .js not .json
                             parameters : {
-                               height : "5", // depth of the extruded text
+                               height : "25", // depth of the extruded text
                                size : "50"
                             },
                             shape : "text", 
