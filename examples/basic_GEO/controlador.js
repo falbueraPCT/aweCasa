@@ -132,12 +132,12 @@ window.addEventListener('load', function() {
                             font_url : "Times_Bold.js",   /// REQUIRED - currently must be .js not .json
                             parameters : {
                                height : "5", // depth of the extruded text
-                               size : "75"
+                               size : "50"
                             },
                             shape : "text", 
                             text : "ESCOLA MIRAMAR"
                         },
-                        position: {x:0, y:10, z:0},
+                        position: {x:0, y:0, z:0},
                         rotation:{ x:0, y:-45, z:0 },
                         material:{ type: 'phong', color:0x0000FF } }, 
                     { poi_id: 'escola_miramar' });
@@ -149,12 +149,12 @@ window.addEventListener('load', function() {
                             font_url : "Times_Bold.js",   /// REQUIRED - currently must be .js not .json
                             parameters : {
                                height : "5", // depth of the extruded text
-                               size : "75"
+                               size : "50"
                             },
                             shape : "text", 
                             text : (dist1/1000).toPrecision(4) + " km"// put your text here
                         },
-                        position: {x:0, y:0, z:0},
+                        position: {x:0, y:25, z:0},
                         rotation:{ x:0, y:-45, z:0 },
                         material:{ type: 'phong', color:0x0000FF } }, 
                     { poi_id: 'escola_miramar' });                    
@@ -178,20 +178,38 @@ window.addEventListener('load', function() {
                     awe.pois.add({ id:'decathlon_vilaseca', position: { x: xyz_poi2[0], y: 0, z: -1 * xyz_poi2[1] } });
                     
                     awe.projections.add({ 
-                        id:'id_decathlon_vilaseca', 
+                        id:'id_decathlon_vilaseca1', 
                         //geometry:{ shape:'cube', x:50, y:50, z:50 }, 
                         geometry : {
                             font_url : "Times_Bold.js",   /// REQUIRED - currently must be .js not .json
                             parameters : {
                                height : "5", // depth of the extruded text
-                               size : "75"
+                               size : "50"
                             },
                             shape : "text", 
-                            text : "DECATHLON VILASECA a " + (dist2/1000).toPrecision(4) + " km"// put your text here
+                            text : "DECATHLON VILASECA"
                          },
+                        position: {x:0, y:0, z:0},
                         rotation:{ x:0, y:-45, z:0 },
                         material:{ type: 'phong', color:0x0000FF } }, 
                     { poi_id: 'decathlon_vilaseca' });
+                    
+                    awe.projections.add({ 
+                        id:'id_decathlon_vilaseca2', 
+                        //geometry:{ shape:'cube', x:50, y:50, z:50 }, 
+                        geometry : {
+                            font_url : "Times_Bold.js",   /// REQUIRED - currently must be .js not .json
+                            parameters : {
+                               height : "5", // depth of the extruded text
+                               size : "50"
+                            },
+                            shape : "text", 
+                            text : (dist2/1000).toPrecision(4) + " km"// put your text here
+                         },
+                        position: {x:0, y:25, z:0},                         
+                        rotation:{ x:0, y:-45, z:0 },
+                        material:{ type: 'phong', color:0x0000FF } }, 
+                    { poi_id: 'decathlon_vilaseca' });                    
                     
                     //if (new_place){
                     //awe.povs.update({ data: { position: { x: pos.lat*100000, y: 0, z: pos.lng*100000 } }, where: { id: 'default' } });
