@@ -122,9 +122,19 @@ window.addEventListener('load', function() {
                     
                         awe.povs.update({ data: { position: { x: xyz_user[0], y: 0, z: -1 * xyz_user[1] } }, where: { id: 'default' } });
                         
-                        awe.projections.update({ data: { text : (dist1/1000).toPrecision(4) + " km" }, where: { id: 'id_escola_miramar2' } });
+                        //awe.projections.update({ data: { text : (dist1/1000).toPrecision(4) + " km" }, where: { id: 'id_escola_miramar2' } });
                         
-                        awe.projections.update({ data: { text : (dist2/1000).toPrecision(4) + " km" }, where: { id: 'decathlon_vilaseca' } });                        
+                        //awe.projections.update({ data: { text : (dist2/1000).toPrecision(4) + " km" }, where: { id: 'decathlon_vilaseca' } });               
+                        
+                        
+                          awe.projections.update({
+                            data: {
+                              text: "text meu"
+                            },
+                            where: {
+                              id: 'id_escola_miramar2'
+                            }
+                          });
                          
                     });
                     //********************************************
