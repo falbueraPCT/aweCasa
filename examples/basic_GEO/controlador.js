@@ -135,7 +135,7 @@ window.addEventListener('load', function() {
                               id: 'id_escola_miramar2'
                             }
                           });
-                         
+                         awe.scene_needs_rendering = 1;
                     });
                     //********************************************
                     
