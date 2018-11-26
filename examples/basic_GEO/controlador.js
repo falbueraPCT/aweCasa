@@ -119,6 +119,7 @@ window.addEventListener('load', function() {
                     console.log('Distància (km) USER-POI2 --> ' + (dist2/1000).toPrecision(4));
                     console.log('---------------');
                     
+                    console.log('user camera : xyz_user[0] xyz_user[1] xyz_user[2]' + xyz_user[0] + ' ' + xyz_user[1] + ' ' + xyz_user[2]);
                     console.log('escola miramar : xyz_poi1[0] xyz_poi1[1] xyz_poi1[2]' + xyz_poi1[0] + ' ' + xyz_poi1[1] + ' ' + xyz_poi1[2]);
                     console.log('decathlon vilaseca : xyz_poi2[0] xyz_poi2[1] xyz_poi2[2]' + xyz_poi2[0] + ' ' + xyz_poi2[1] + ' ' + xyz_poi2[2]);
                     
