@@ -173,7 +173,7 @@ window.addEventListener('load', function() {
                     
                     //if (new_place){
                     //awe.povs.update({ data: { position: { x: pos.lat*100000, y: 0, z: pos.lng*100000 } }, where: { id: 'default' } });
-                    awe.povs.update({ data: { position: { x: xyz_user[0], y: 0, z: -1 * xyz_user[1] } }, where: { id: 'default' } });
+                    awe.povs.update({ data: { position: { x: xyz_user[0], y: 0, z:  xyz_user[1] } }, where: { id: 'default' } });
                     //    new_place = false;
                     //}
                     /*
