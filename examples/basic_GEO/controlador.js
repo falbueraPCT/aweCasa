@@ -158,7 +158,7 @@ window.addEventListener('load', function() {
                             shape : "text", 
                             text : "HOLA PAQUITO!!!" // put your text here
                          },
-                        rotation:{ x:0, y:90, z:0 },
+                        rotation:{ x:0, y:0, z:0 },
                         material:{ type: 'phong', color:0x0000FF } }, 
                     { poi_id: 'decathlon_vilaseca' });
                     
