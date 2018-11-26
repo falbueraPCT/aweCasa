@@ -123,7 +123,16 @@ window.addEventListener('load', function() {
                     
                     awe.projections.add({ 
                         id:'id_escola_miramar', 
-                        geometry:{ shape:'cube', x:50, y:50, z:50 }, 
+                        //geometry:{ shape:'cube', x:50, y:50, z:50 }, 
+                        geometry : {
+                            font_url : "Times_Bold.js",   /// REQUIRED - currently must be .js not .json
+                            parameters : {
+                               height : "5", // depth of the extruded text
+                               size : "75"
+                            },
+                            shape : "text", 
+                            text : "ESCOLA MIRAMAR a " + (dist1/1000).toPrecision(4) + " km"// put your text here
+                        },
                         rotation:{ x:30, y:30, z:0 },
                         material:{ type: 'phong', color:0x0000FF } }, 
                     { poi_id: 'escola_miramar' });
@@ -152,11 +161,11 @@ window.addEventListener('load', function() {
                         geometry : {
                             font_url : "Times_Bold.js",   /// REQUIRED - currently must be .js not .json
                             parameters : {
-                               height : "10", // depth of the extruded text
-                               size : "80"
+                               height : "5", // depth of the extruded text
+                               size : "75"
                             },
                             shape : "text", 
-                            text : "HOLA PAQUITO!!!" // put your text here
+                            text : "DECATHLON VILASECA a " + (dist2/1000).toPrecision(4) + " km"// put your text here
                          },
                         rotation:{ x:0, y:-45, z:0 },
                         material:{ type: 'phong', color:0x0000FF } }, 
