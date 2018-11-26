@@ -137,7 +137,7 @@ window.addEventListener('load', function() {
                             shape : "text", 
                             text : "ESCOLA MIRAMAR"
                         },
-                        position: {x:0, y:10, z=0},
+                        position: {x:0, y:10, z:0},
                         rotation:{ x:0, y:-45, z:0 },
                         material:{ type: 'phong', color:0x0000FF } }, 
                     { poi_id: 'escola_miramar' });
@@ -154,7 +154,7 @@ window.addEventListener('load', function() {
                             shape : "text", 
                             text : (dist1/1000).toPrecision(4) + " km"// put your text here
                         },
-                        position: {x:0, y:0, z=0},
+                        position: {x:0, y:0, z:0},
                         rotation:{ x:0, y:-45, z:0 },
                         material:{ type: 'phong', color:0x0000FF } }, 
                     { poi_id: 'escola_miramar' });                    
