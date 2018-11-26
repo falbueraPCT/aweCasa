@@ -123,10 +123,10 @@ window.addEventListener('load', function() {
                     console.log('escola miramar : xyz_poi1[0] xyz_poi1[1] xyz_poi1[2]' + xyz_poi1[0] + ' ' + xyz_poi1[1] + ' ' + xyz_poi1[2]);
                     console.log('decathlon vilaseca : xyz_poi2[0] xyz_poi2[1] xyz_poi2[2]' + xyz_poi2[0] + ' ' + xyz_poi2[1] + ' ' + xyz_poi2[2]);
                     
-                    awe.pois.add({ id:'escola_miramar', position: { x: xyz_poi1[0], y: 0, z: -1 * xyz_poi1[2] } });
+                    awe.pois.add({ id:'escola_miramar', position: { x: xyz_poi1[0], y: 0, z: -1 * xyz_poi1[1] } });
                     
                     awe.projections.add({ 
-                        id:'id_escola_miramar', 
+                        id:'id_escola_miramar1', 
                         //geometry:{ shape:'cube', x:50, y:50, z:50 }, 
                         geometry : {
                             font_url : "Times_Bold.js",   /// REQUIRED - currently must be .js not .json
@@ -135,11 +135,29 @@ window.addEventListener('load', function() {
                                size : "75"
                             },
                             shape : "text", 
-                            text : "ESCOLA MIRAMAR a " + (dist1/1000).toPrecision(4) + " km"// put your text here
+                            text : "ESCOLA MIRAMAR"
                         },
+                        position: {x:0, y:10, z=0},
                         rotation:{ x:0, y:-45, z:0 },
                         material:{ type: 'phong', color:0x0000FF } }, 
                     { poi_id: 'escola_miramar' });
+                    
+                    awe.projections.add({ 
+                        id:'id_escola_miramar2', 
+                        //geometry:{ shape:'cube', x:50, y:50, z:50 }, 
+                        geometry : {
+                            font_url : "Times_Bold.js",   /// REQUIRED - currently must be .js not .json
+                            parameters : {
+                               height : "5", // depth of the extruded text
+                               size : "75"
+                            },
+                            shape : "text", 
+                            text : (dist1/1000).toPrecision(4) + " km"// put your text here
+                        },
+                        position: {x:0, y:0, z=0},
+                        rotation:{ x:0, y:-45, z:0 },
+                        material:{ type: 'phong', color:0x0000FF } }, 
+                    { poi_id: 'escola_miramar' });                    
                     
                     //var degFmt = 'latlon-degree-format';
                     //var degFmt = 'dms';
@@ -157,7 +175,7 @@ window.addEventListener('load', function() {
                     //var scale = 10000;
                     
                     //awe.pois.add({ id:'amposta', position: { x: poi1_lat*100000, y: 0, z: poi1_lng*100000 } });
-                    awe.pois.add({ id:'decathlon_vilaseca', position: { x: xyz_poi2[0], y: 0, z: -1 * xyz_poi2[2] } });
+                    awe.pois.add({ id:'decathlon_vilaseca', position: { x: xyz_poi2[0], y: 0, z: -1 * xyz_poi2[1] } });
                     
                     awe.projections.add({ 
                         id:'id_decathlon_vilaseca', 
@@ -177,7 +195,7 @@ window.addEventListener('load', function() {
                     
                     //if (new_place){
                     //awe.povs.update({ data: { position: { x: pos.lat*100000, y: 0, z: pos.lng*100000 } }, where: { id: 'default' } });
-                    awe.povs.update({ data: { position: { x: xyz_user[0], y: 0, z: -1 * xyz_user[2] } }, where: { id: 'default' } });
+                    awe.povs.update({ data: { position: { x: xyz_user[0], y: 0, z: -1 * xyz_user[1] } }, where: { id: 'default' } });
                     //    new_place = false;
                     //}
                     /*
