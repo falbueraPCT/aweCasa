@@ -169,7 +169,7 @@ window.addEventListener('load', function() {
                             font_url : "Times_Bold.js",   /// REQUIRED - currently must be .js not .json
                             parameters : {
                                height : "5", // depth of the extruded text
-                               size : "40"
+                               size : "35"
                             },
                             shape : "text", 
                             text : "ESCOLA MIRAMAR"
@@ -186,7 +186,7 @@ window.addEventListener('load', function() {
                             font_url : "Times_Bold.js",   /// REQUIRED - currently must be .js not .json
                             parameters : {
                                height : "5", // depth of the extruded text
-                               size : "40"
+                               size : "35"
                             },
                             shape : "text", 
                             text : (dist1/1000).toPrecision(4) + " km"// put your text here
@@ -200,7 +200,7 @@ window.addEventListener('load', function() {
                       id:'id_escola_miramar3',
                       geometry:{ shape:'plane', width:250, height:100 },
                       texture: { path: 'pic.png' },
-                      position: {x:50, y:-50, z:0},
+                      position: {x:150, y:-50, z:0},
                       rotation:{ x:0, y:-60, z:0 },
                       material:{ color:0xFFFFFF, transparent:true }
                     }, { poi_id: 'escola_miramar' });                    
@@ -230,7 +230,7 @@ window.addEventListener('load', function() {
                             font_url : "Times_Bold.js",   /// REQUIRED - currently must be .js not .json
                             parameters : {
                                height : "5", // depth of the extruded text
-                               size : "40"
+                               size : "35"
                             },
                             shape : "text", 
                             text : "DECATHLON VILASECA"
@@ -247,7 +247,7 @@ window.addEventListener('load', function() {
                             font_url : "Times_Bold.js",   /// REQUIRED - currently must be .js not .json
                             parameters : {
                                height : "5", // depth of the extruded text
-                               size : "40"
+                               size : "35"
                             },
                             shape : "text", 
                             text : (dist2/1000).toPrecision(4) + " km"// put your text here
@@ -263,7 +263,7 @@ window.addEventListener('load', function() {
                       id:'id_decathlon_vilaseca3',
                       geometry:{ shape:'plane', width:250, height:100 },
                       texture: { path: 'pic.png' },
-                      position: {x:50, y:-50, z:0},
+                      position: {x:150, y:-50, z:0},
                       rotation:{ x:0, y:-60, z:0 },
                       material:{ color:0xFFFFFF, transparent:true }
                     }, { poi_id: 'decathlon_vilaseca' });                          
