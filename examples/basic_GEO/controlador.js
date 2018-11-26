@@ -148,7 +148,7 @@ window.addEventListener('load', function() {
                             font_url : "Times_Bold.js",   /// REQUIRED - currently must be .js not .json
                             parameters : {
                                height : "5", // depth of the extruded text
-                               size : "20"
+                               size : "18"
                             },
                             shape : "text", 
                             text : "ESCOLA MIRAMAR"
@@ -193,7 +193,7 @@ window.addEventListener('load', function() {
                             font_url : "Times_Bold.js",   /// REQUIRED - currently must be .js not .json
                             parameters : {
                                height : "5", // depth of the extruded text
-                               size : "20"
+                               size : "18"
                             },
                             shape : "text", 
                             text : "DECATHLON VILASECA"
