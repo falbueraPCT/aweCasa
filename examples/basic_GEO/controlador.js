@@ -176,7 +176,7 @@ window.addEventListener('load', function() {
                         },
                         position: {x:0, y:50, z:0},
                         rotation:{ x:0, y:-45, z:0 },
-                        material:{ type: 'phong', color:0x0000FF } }, 
+                        material:{ type: 'phong', color:0xF3F3F3 } }, 
                     { poi_id: 'escola_miramar' });
                     
                     awe.projections.add({ 
@@ -193,7 +193,7 @@ window.addEventListener('load', function() {
                         },
                         position: {x:0, y:0, z:0},
                         rotation:{ x:0, y:-45, z:0 },
-                        material:{ type: 'phong', color:0x0000FF } }, 
+                        material:{ type: 'phong', color:0xF3F3F3 } }, 
                     { poi_id: 'escola_miramar' });                    
                     
                     //var degFmt = 'latlon-degree-format';
