@@ -198,7 +198,7 @@ window.addEventListener('load', function() {
                     
                     awe.projections.add({
                       id:'id_escola_miramar3',
-                      geometry:{ shape:'plane', width:250, height:100 },
+                      geometry:{ shape:'plane', width:500, height:200 },
                       texture: { path: 'pic.png' },
                       position: {x:150, y:-50, z:0},
                       rotation:{ x:0, y:-60, z:0 },
@@ -261,7 +261,7 @@ window.addEventListener('load', function() {
                     
                     awe.projections.add({
                       id:'id_decathlon_vilaseca3',
-                      geometry:{ shape:'plane', width:250, height:100 },
+                      geometry:{ shape:'plane', width:500, height:200 },
                       texture: { path: 'pic.png' },
                       position: {x:150, y:-50, z:0},
                       rotation:{ x:0, y:-60, z:0 },
