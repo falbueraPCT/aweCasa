@@ -133,7 +133,7 @@ window.addEventListener('load', function() {
                             shape : "text", 
                             text : "ESCOLA MIRAMAR a " + (dist1/1000).toPrecision(4) + " km"// put your text here
                         },
-                        rotation:{ x:30, y:30, z:0 },
+                        rotation:{ x:0, y:-45, z:0 },
                         material:{ type: 'phong', color:0x0000FF } }, 
                     { poi_id: 'escola_miramar' });
                     
