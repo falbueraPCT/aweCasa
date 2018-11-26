@@ -18,6 +18,11 @@ var xyz_poi2;
 
 var salto_ctrl = 0;
 
+ if(new_place){
+    console.log('SALTO SALTO SALTO');    
+    new_place = false;
+}
+
 window.addEventListener('load', function() {
     
     // initialize awe after page loads
