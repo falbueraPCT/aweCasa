@@ -90,6 +90,20 @@ window.addEventListener('load', function() {
                         });
                     }, false);
                     
+                    //********************************************
+                    var test = navigator.geolocation.watchPosition(function(position) {
+                        
+
+                        posTEST = { lat: position.coords.latitude, lng: position.coords.longitude };
+                        //awe.povs.update({ data: { position: { x: pos.lat * 10000, y: 0, z: pos.lng * 10000 } }, where: { id: 'default' } });
+                        console.log('posTEST LAT CTRL.JS --> ' + posTEST.lat);
+                        console.log('posTEST LNG CTRL.JS --> ' + posTEST.lng);        
+                                salto_ctrl = salto_ctrl + 1;
+                    console.log('salto_ctrl --> ' + salto_ctrl);
+                      
+                    });
+                    //********************************************
+                    
                     // Escola Miramar
                     poi1_lat = 41.105243;
                     poi1_lng = 1.145404;   
@@ -184,8 +198,7 @@ window.addEventListener('load', function() {
                     //awe.pois.add({ id:'amposta', position: { x: poi1_lat*100000, y: 0, z: poi1_lng*100000 } });
                     awe.pois.add({ id:'decathlon_vilaseca', position: { x: xyz_poi2[0], y: 0, z: -1 * xyz_poi2[1] } });
                     
-                    salto_ctrl = salto_ctrl + 1;
-                    console.log('salto_ctrl --> ' + salto_ctrl);
+            
                     
                     if(new_place){
                         console.log('SALTO SALTO SALTO');    
