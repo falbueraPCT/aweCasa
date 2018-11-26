@@ -148,8 +148,9 @@ window.addEventListener('load', function() {
                     
                     awe.projections.add({ 
                         id:'id_decathlon_vilaseca', 
-                        geometry:{ shape:'cube', x:50, y:50, z:50 }, 
-                        rotation:{ x:30, y:30, z:0 },
+                        //geometry:{ shape:'cube', x:50, y:50, z:50 }, 
+                        geometry: {shape: 'text', text: 'Hello World', font: 'times new roman', weight: 'normal', style: 'normal'},
+                        //rotation:{ x:0, y:0, z:0 },
                         material:{ type: 'phong', color:0x0000FF } }, 
                     { poi_id: 'decathlon_vilaseca' });
                     
@@ -158,10 +159,12 @@ window.addEventListener('load', function() {
                     awe.povs.update({ data: { position: { x: xyz_user[0], y: 0, z: -1 * xyz_user[1] } }, where: { id: 'default' } });
                     //    new_place = false;
                     //}
+                    /*
                     var projection_child = awe.projections.view('s').get_mesh().children[0];
                     var projection_params = projection_child.geometry.parameters.parameters;
                     projection_child.geometry = new THREE.TextGeometry( "YOUR NEW TEXT HERE", projection_params );
                     awe.scene_needs_rendering = 1;
+                    */
                     /*
                    
                     var test1 = awe.pois.list();
