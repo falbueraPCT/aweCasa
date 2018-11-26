@@ -149,8 +149,16 @@ window.addEventListener('load', function() {
                     awe.projections.add({ 
                         id:'id_decathlon_vilaseca', 
                         //geometry:{ shape:'cube', x:50, y:50, z:50 }, 
-                        geometry: {shape: 'text', text: 'Hello World', font: 'times new roman', weight: 'normal', style: 'normal'},
-                        //rotation:{ x:0, y:0, z:0 },
+                        geometry : {
+                            font_url : "Times_Bold.js",   /// REQUIRED - currently must be .js not .json
+                            parameters : {
+                               height : "10", // depth of the extruded text
+                               size : "80"
+                            },
+                            shape : "text", 
+                            text : "HOLA PAQUITO!!!" // put your text here
+                         },
+                        rotation:{ x:0, y:90, z:0 },
                         material:{ type: 'phong', color:0x0000FF } }, 
                     { poi_id: 'decathlon_vilaseca' });
                     
