@@ -126,7 +126,11 @@ window.addEventListener('load', function() {
                         
                         //awe.projections.update({ data: { text : (dist2/1000).toPrecision(4) + " km" }, where: { id: 'decathlon_vilaseca' } });               
                         
-                        
+                        var projection_child = awe.projections.view('id_escola_miramar2').get_mesh().children[0];
+                        var projection_params = projection_child.geometry.parameters.parameters;
+                        projection_child.geometry = new THREE.TextGeometry( "YOUR NEW TEXT HERE", projection_params );
+                        awe.scene_needs_rendering = 1;
+                        /*
                           awe.projections.update({
                             data: {
                               text: "text miramar"
@@ -144,7 +148,7 @@ window.addEventListener('load', function() {
                               id: 'id_decathlon_vilaseca2'
                             }
                           });
-                         awe.scene_needs_rendering = 1;
+                         awe.scene_needs_rendering = 1;*/
                     });
                     //********************************************
                     
