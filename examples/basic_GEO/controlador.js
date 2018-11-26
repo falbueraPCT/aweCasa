@@ -16,6 +16,9 @@ var xyz_user;
 var xyz_poi1;
 var xyz_poi2;
 
+var projection_child;
+var projection_params;
+
 window.addEventListener('load', function() {
     
     // initialize awe after page loads
@@ -120,35 +123,18 @@ window.addEventListener('load', function() {
                         console.log('Distància (km) USER-POI2 --> ' + (dist2/1000).toPrecision(4));
                         console.log('---------------');
                     
-                        awe.povs.update({ data: { position: { x: xyz_user[0], y: 0, z: -1 * xyz_user[1] } }, where: { id: 'default' } });
+                        awe.povs.update({ data: { position: { x: xyz_user[0], y: 0, z: -1 * xyz_user[1] } }, where: { id: 'default' } });                                
                         
-                        //awe.projections.update({ data: { text : (dist1/1000).toPrecision(4) + " km" }, where: { id: 'id_escola_miramar2' } });
+                        projection_child = awe.projections.view('id_escola_miramar2').get_mesh().children[0];
+                        projection_params = projection_child.geometry.parameters.parameters;
+                        projection_child.geometry = new THREE.TextGeometry( "A " + (dist1/1000).toPrecision(4) + " km", projection_params );
                         
-                        //awe.projections.update({ data: { text : (dist2/1000).toPrecision(4) + " km" }, where: { id: 'decathlon_vilaseca' } });               
+                        projection_child = awe.projections.view('id_decathlon_vilaseca2').get_mesh().children[0];
+                        projection_params = projection_child.geometry.parameters.parameters;
+                        projection_child.geometry = new THREE.TextGeometry( "A " + (dist2/1000).toPrecision(4) + " km", projection_params );
                         
-                        var projection_child = awe.projections.view('id_escola_miramar2').get_mesh().children[0];
-                        var projection_params = projection_child.geometry.parameters.parameters;
-                        projection_child.geometry = new THREE.TextGeometry( "YOUR NEW TEXT HERE", projection_params );
                         awe.scene_needs_rendering = 1;
-                        /*
-                          awe.projections.update({
-                            data: {
-                              text: "text miramar"
-                            },
-                            where: {
-                              id: 'id_escola_miramar2'
-                            }
-                          });
-                          
-                           awe.projections.update({
-                            data: {
-                              text: "text decathlon"
-                            },
-                            where: {
-                              id: 'id_decathlon_vilaseca2'
-                            }
-                          });
-                         awe.scene_needs_rendering = 1;*/
+
                     });
                     //********************************************
                     
