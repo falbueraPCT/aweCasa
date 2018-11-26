@@ -27,8 +27,8 @@ function initMap() {
             
             pos = { lat: position.coords.latitude, lng: position.coords.longitude };
             //awe.povs.update({ data: { position: { x: pos.lat * 10000, y: 0, z: pos.lng * 10000 } }, where: { id: 'default' } });
-            //console.log('POS LAT GEOLOCALIZACION.JS --> ' + pos.lat);
-            //console.log('POS LNG GEOLOCALIZACION.JS --> ' + pos.lng);            
+            console.log('POS LAT GEOLOCALIZACION.JS --> ' + pos.lat);
+            console.log('POS LNG GEOLOCALIZACION.JS --> ' + pos.lng);            
             infoWindow.setPosition(pos);
             infoWindow.setContent('Ubicació trobada!');
             infoWindow.open(map);
