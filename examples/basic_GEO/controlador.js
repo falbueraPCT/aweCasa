@@ -227,7 +227,7 @@ window.addEventListener('load', function() {
                             text : "DECATHLON VILASECA"
                          },
                         position: {x:0, y:50, z:0},
-                        rotation:{ x:0, y:-45, z:0 },
+                        rotation:{ x:0, y:0, z:0 },
                         material:{ type: 'phong', color:0xF3F3F3 } }, 
                     { poi_id: 'decathlon_vilaseca' });
                     
