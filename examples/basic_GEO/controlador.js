@@ -148,12 +148,12 @@ window.addEventListener('load', function() {
                             font_url : "Times_Bold.js",   /// REQUIRED - currently must be .js not .json
                             parameters : {
                                height : "5", // depth of the extruded text
-                               size : "30"
+                               size : "25"
                             },
                             shape : "text", 
                             text : "ESCOLA MIRAMAR"
                         },
-                        position: {x:0, y:50, z:0},
+                        position: {x:0, y:25, z:0},
                         rotation:{ x:0, y:-60, z:0 },
                         material:{ type: 'phong', color:0xF3F3F3 } }, 
                     { poi_id: 'escola_miramar' });
@@ -165,10 +165,10 @@ window.addEventListener('load', function() {
                             font_url : "Times_Bold.js",   /// REQUIRED - currently must be .js not .json
                             parameters : {
                                height : "5", // depth of the extruded text
-                               size : "25"
+                               size : "20"
                             },
                             shape : "text", 
-                            text : (dist1/1000).toPrecision(4) + " KM"// put your text here
+                            text : (dist1/1000).toPrecision(2) + " KM"// put your text here
                         },
                         position: {x:0, y:0, z:0},
                         rotation:{ x:0, y:-60, z:0 },
@@ -179,7 +179,7 @@ window.addEventListener('load', function() {
                       id:'id_escola_miramar3',
                       geometry:{ shape:'plane', width:350, height:150 },
                       texture: { path: 'pic.png' },
-                      position: {x:200, y:-50, z:0},
+                      position: {x:250, y:-25, z:0},
                       rotation:{ x:0, y:-60, z:0 },
                       material:{ color:0xFFFFFF, transparent:true }
                     }, { poi_id: 'escola_miramar' });                                        
@@ -193,12 +193,12 @@ window.addEventListener('load', function() {
                             font_url : "Times_Bold.js",   /// REQUIRED - currently must be .js not .json
                             parameters : {
                                height : "5", // depth of the extruded text
-                               size : "30"
+                               size : "25"
                             },
                             shape : "text", 
                             text : "DECATHLON VILASECA"
                          },
-                        position: {x:0, y:50, z:0},
+                        position: {x:0, y:25, z:0},
                         rotation:{ x:0, y:-60, z:0 },
                         material:{ type: 'phong', color:0xF3F3F3 } }, 
                     { poi_id: 'decathlon_vilaseca' });
@@ -210,10 +210,10 @@ window.addEventListener('load', function() {
                             font_url : "Times_Bold.js",   /// REQUIRED - currently must be .js not .json
                             parameters : {
                                height : "5", // depth of the extruded text
-                               size : "25"
+                               size : "20"
                             },
                             shape : "text", 
-                            text : (dist2/1000).toPrecision(4) + " KM"// put your text here
+                            text : (dist2/1000).toPrecision(2) + " KM"// put your text here
                          },
                         position: {x:0, y:0, z:0},                         
                         rotation:{ x:0, y:-60, z:0 },
@@ -224,7 +224,7 @@ window.addEventListener('load', function() {
                       id:'id_decathlon_vilaseca3',
                       geometry:{ shape:'plane', width:350, height:150 },
                       texture: { path: 'pic.png' },
-                      position: {x:200, y:-50, z:0},
+                      position: {x:250, y:-25, z:0},
                       rotation:{ x:0, y:-60, z:0 },
                       material:{ color:0xFFFFFF, transparent:true }
                     }, { poi_id: 'decathlon_vilaseca' });                          
