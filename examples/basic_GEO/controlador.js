@@ -175,7 +175,7 @@ window.addEventListener('load', function() {
                             text : "ESCOLA MIRAMAR"
                         },
                         position: {x:0, y:50, z:0},
-                        rotation:{ x:0, y:-45, z:0 },
+                        rotation:{ x:0, y:-60, z:0 },
                         material:{ type: 'phong', color:0xF3F3F3 } }, 
                     { poi_id: 'escola_miramar' });
                     
@@ -192,7 +192,7 @@ window.addEventListener('load', function() {
                             text : (dist1/1000).toPrecision(4) + " km"// put your text here
                         },
                         position: {x:0, y:0, z:0},
-                        rotation:{ x:0, y:-45, z:0 },
+                        rotation:{ x:0, y:-60, z:0 },
                         material:{ type: 'phong', color:0xF3F3F3 } }, 
                     { poi_id: 'escola_miramar' });                    
                     
@@ -227,7 +227,7 @@ window.addEventListener('load', function() {
                             text : "DECATHLON VILASECA"
                          },
                         position: {x:0, y:50, z:0},
-                        rotation:{ x:0, y:0, z:0 },
+                        rotation:{ x:0, y:-60, z:0 },
                         material:{ type: 'phong', color:0xF3F3F3 } }, 
                     { poi_id: 'decathlon_vilaseca' });
                     
@@ -244,7 +244,7 @@ window.addEventListener('load', function() {
                             text : (dist2/1000).toPrecision(4) + " km"// put your text here
                          },
                         position: {x:0, y:0, z:0},                         
-                        rotation:{ x:0, y:-90, z:0 },
+                        rotation:{ x:0, y:-60, z:0 },
                         material:{ type: 'phong', color:0xF3F3F3 } }, 
                     { poi_id: 'decathlon_vilaseca' });                    
                     
