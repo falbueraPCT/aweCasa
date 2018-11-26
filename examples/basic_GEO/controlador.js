@@ -194,14 +194,14 @@ window.addEventListener('load', function() {
                         position: {x:0, y:0, z:0},
                         rotation:{ x:0, y:-60, z:0 },
                         material:{ type: 'phong', color:0xF3F3F3 } }, 
-                    { poi_id: 'escola_miramar' });        
-                   
-                    awe.projections.add({ 
-                        id:'id_escola_miramar3', 
-			geometry:{ shape:'plane', x:50, y:50, z:50 }, 
-                        rotation:{ x:30, y:30, z:0 },
-			material:{ type: 'phong', color: 0xFFFFFF }, 
-                        texture: { path: 'pic.png' },
+                    { poi_id: 'escola_miramar' });                            
+                    
+                    awe.projections.add({
+                      id:'id_escola_miramar3',
+                      geometry:{ shape:'plane', width:250, height:100 },
+                      texture: { path: 'pic.png' },
+                      rotation:{ x:0, y:-60, z:0 },
+                      material:{ color:0xFFFFFF, transparent:true }
                     }, { poi_id: 'escola_miramar' });                    
                     
                     //var degFmt = 'latlon-degree-format';
@@ -254,15 +254,17 @@ window.addEventListener('load', function() {
                         position: {x:0, y:0, z:0},                         
                         rotation:{ x:0, y:-60, z:0 },
                         material:{ type: 'phong', color:0xF3F3F3 } }, 
-                    { poi_id: 'decathlon_vilaseca' });                      
+                    { poi_id: 'decathlon_vilaseca' });               
                     
-                    awe.projections.add({ 
-                        id:'id_decathlon_vilaseca3', 
-			geometry:{ shape:'plane', x:50, y:50, z:50 }, 
-                        rotation:{ x:30, y:30, z:0 },
-			material:{ type: 'phong', color: 0xFFFFFF }, 
-                        texture: { path: 'pic.png' },
-                    }, { poi_id: 'decathlon_vilaseca' });
+
+                    
+                    awe.projections.add({
+                      id:'id_decathlon_vilaseca3',
+                      geometry:{ shape:'plane', width:250, height:100 },
+                      texture: { path: 'pic.png' },
+                      rotation:{ x:0, y:-60, z:0 },
+                      material:{ color:0xFFFFFF, transparent:true }
+                    }, { poi_id: 'decathlon_vilaseca' });                          
                     
                     	
 
