@@ -129,10 +129,19 @@ window.addEventListener('load', function() {
                         
                           awe.projections.update({
                             data: {
-                              text: "text meu"
+                              text: "text miramar"
                             },
                             where: {
                               id: 'id_escola_miramar2'
+                            }
+                          });
+                          
+                           awe.projections.update({
+                            data: {
+                              text: "text decathlon"
+                            },
+                            where: {
+                              id: 'id_decathlon_vilaseca2'
                             }
                           });
                          awe.scene_needs_rendering = 1;
