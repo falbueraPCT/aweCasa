@@ -127,11 +127,11 @@ window.addEventListener('load', function() {
                         
                         projection_child = awe.projections.view('id_escola_miramar2').get_mesh().children[0];
                         projection_params = projection_child.geometry.parameters.parameters;
-                        projection_child.geometry = new THREE.TextGeometry( "A " + (dist1/1000).toPrecision(4) + " km", projection_params );
+                        projection_child.geometry = new THREE.TextGeometry( (dist1/1000).toPrecision(2) + " KM", projection_params );
                         
                         projection_child = awe.projections.view('id_decathlon_vilaseca2').get_mesh().children[0];
                         projection_params = projection_child.geometry.parameters.parameters;
-                        projection_child.geometry = new THREE.TextGeometry( "A " + (dist2/1000).toPrecision(4) + " km", projection_params );
+                        projection_child.geometry = new THREE.TextGeometry( (dist2/1000).toPrecision(2) + " KM", projection_params );
                         
                         awe.scene_needs_rendering = 1;
 
@@ -169,7 +169,7 @@ window.addEventListener('load', function() {
                             font_url : "Times_Bold.js",   /// REQUIRED - currently must be .js not .json
                             parameters : {
                                height : "5", // depth of the extruded text
-                               size : "35"
+                               size : "30"
                             },
                             shape : "text", 
                             text : "ESCOLA MIRAMAR"
@@ -186,10 +186,10 @@ window.addEventListener('load', function() {
                             font_url : "Times_Bold.js",   /// REQUIRED - currently must be .js not .json
                             parameters : {
                                height : "5", // depth of the extruded text
-                               size : "35"
+                               size : "30"
                             },
                             shape : "text", 
-                            text : (dist1/1000).toPrecision(4) + " km"// put your text here
+                            text : (dist1/1000).toPrecision(4) + " KM"// put your text here
                         },
                         position: {x:0, y:0, z:0},
                         rotation:{ x:0, y:-60, z:0 },
@@ -230,7 +230,7 @@ window.addEventListener('load', function() {
                             font_url : "Times_Bold.js",   /// REQUIRED - currently must be .js not .json
                             parameters : {
                                height : "5", // depth of the extruded text
-                               size : "35"
+                               size : "30"
                             },
                             shape : "text", 
                             text : "DECATHLON VILASECA"
@@ -247,10 +247,10 @@ window.addEventListener('load', function() {
                             font_url : "Times_Bold.js",   /// REQUIRED - currently must be .js not .json
                             parameters : {
                                height : "5", // depth of the extruded text
-                               size : "35"
+                               size : "30"
                             },
                             shape : "text", 
-                            text : (dist2/1000).toPrecision(4) + " km"// put your text here
+                            text : (dist2/1000).toPrecision(4) + " KM"// put your text here
                          },
                         position: {x:0, y:0, z:0},                         
                         rotation:{ x:0, y:-60, z:0 },
