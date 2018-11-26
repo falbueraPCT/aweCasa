@@ -90,59 +90,73 @@ window.addEventListener('load', function() {
                         });
                     }, false);
                     
-                    //********************************************
-                    var test = navigator.geolocation.watchPosition(function(position) {
-                        
-
-                        posTEST = { lat: position.coords.latitude, lng: position.coords.longitude };
-                        //awe.povs.update({ data: { position: { x: pos.lat * 10000, y: 0, z: pos.lng * 10000 } }, where: { id: 'default' } });
-                        console.log('posTEST LAT CTRL.JS --> ' + posTEST.lat);
-                        console.log('posTEST LNG CTRL.JS --> ' + posTEST.lng);        
-                                salto_ctrl = salto_ctrl + 1;
-                    console.log('salto_ctrl --> ' + salto_ctrl);
-                      
-                    });
-                    //********************************************
-                    
                     // Escola Miramar
                     poi1_lat = 41.105243;
                     poi1_lng = 1.145404;   
+                    p2 = LatLon(poi1_lat, poi1_lng);
+                    xyz_poi1 = project(poi1_lat, poi1_lng, 0.0);                    
                     
                     // Decathlon Vilaseca
                     poi2_lat = 41.096458;
-                    poi2_lng = 1.151421;                      
-                    
-                    p1 = LatLon(pos.lat, pos.lng);
-                    xyz_user = project(pos.lat, pos.lng, 0.0);
-                    // user - poi1
-                    p2 = LatLon(poi1_lat, poi1_lng);
-                    dist1 = p1.distanceTo(p2);                   
-                    xyz_poi1 = project(poi1_lat, poi1_lng, 0.0);                    
-                    // user - poi2
+                    poi2_lng = 1.151421;    
                     p3 = LatLon(poi2_lat, poi2_lng);
-                    dist2 = p1.distanceTo(p3);                   
                     xyz_poi2 = project(poi2_lat, poi2_lng, 0.0);
+                    
+                    //******************************************** a cada canvi de posició de l'usuari
+                    var test = navigator.geolocation.watchPosition(function(position) {                        
+
+                        pos = { lat: position.coords.latitude, lng: position.coords.longitude };
+                        p1 = LatLon(pos.lat, pos.lng);
+                        xyz_user = project(pos.lat, pos.lng, 0.0);
+                        // user - poi1                        
+                        dist1 = p1.distanceTo(p2);                                           
+                        // user - poi2                        
+                        dist2 = p1.distanceTo(p3);     
+                        
+                        console.log('Info USUARI-POI');
+                        console.log('---------------');
+                        console.log('USER pos lat --> ' + pos.lat);
+                        console.log('USER pos lng --> ' + pos.lng);
+                        console.log('POI 1 pos lat --> ' + poi1_lat);
+                        console.log('POI 1 pos lng --> ' + poi1_lng);
+                        console.log('Distància (m) USER-POI1 --> ' + dist1);
+                        console.log('Distància (km) USER-POI1 --> ' + (dist1/1000).toPrecision(4));
+                        console.log('POI 2 pos lat --> ' + poi2_lat);
+                        console.log('POI 2 pos lng --> ' + poi2_lng);
+                        console.log('Distància (m) USER-POI2 --> ' + dist2);
+                        console.log('Distància (km) USER-POI2 --> ' + (dist2/1000).toPrecision(4));
+                        console.log('---------------');
+                    
+                        awe.povs.update({ data: { position: { x: xyz_user[0], y: 0, z: -1 * xyz_user[1] } }, where: { id: 'default' } });
+                        
+                        awe.projections.update({ data: { text : (dist1/1000).toPrecision(4) + " km" }, where: { id: 'id_escola_miramar2' } });
+                        
+                        awe.projections.update({ data: { text : (dist2/1000).toPrecision(4) + " km" }, where: { id: 'decathlon_vilaseca' } });                        
+                         
+                    });
+                    //********************************************
+                    
+                  
+                    
+                    //p1 = LatLon(pos.lat, pos.lng);
+                    //xyz_user = project(pos.lat, pos.lng, 0.0);
+                    // user - poi1
+                    //p2 = LatLon(poi1_lat, poi1_lng);
+                    //dist1 = p1.distanceTo(p2);                   
+                    //xyz_poi1 = project(poi1_lat, poi1_lng, 0.0);                    
+                    // user - poi2
+                    //p3 = LatLon(poi2_lat, poi2_lng);
+                    //dist2 = p1.distanceTo(p3);                   
+                    //xyz_poi2 = project(poi2_lat, poi2_lng, 0.0);
                     //brng1 = p1.bearingTo(p2);
                     //brng2 = p1.finalBearingTo(p2);
                     //pMid = p1.midpointTo(p2);
                     
-                    console.log('Info USUARI-POI');
-                    console.log('---------------');
-                    console.log('USER pos lat --> ' + pos.lat);
-                    console.log('USER pos lng --> ' + pos.lng);
-                    console.log('POI 1 pos lat --> ' + poi1_lat);
-                    console.log('POI 1 pos lng --> ' + poi1_lng);
-                    console.log('Distància (m) USER-POI1 --> ' + dist1);
-                    console.log('Distància (km) USER-POI1 --> ' + (dist1/1000).toPrecision(4));
-                    console.log('POI 2 pos lat --> ' + poi2_lat);
-                    console.log('POI 2 pos lng --> ' + poi2_lng);
-                    console.log('Distància (m) USER-POI2 --> ' + dist2);
-                    console.log('Distància (km) USER-POI2 --> ' + (dist2/1000).toPrecision(4));
-                    console.log('---------------');
+
                     
-                    console.log('user camera : xyz_user[0] xyz_user[1] xyz_user[2]' + xyz_user[0] + ' ' + xyz_user[1] + ' ' + xyz_user[2]);
-                    console.log('escola miramar : xyz_poi1[0] xyz_poi1[1] xyz_poi1[2]' + xyz_poi1[0] + ' ' + xyz_poi1[1] + ' ' + xyz_poi1[2]);
-                    console.log('decathlon vilaseca : xyz_poi2[0] xyz_poi2[1] xyz_poi2[2]' + xyz_poi2[0] + ' ' + xyz_poi2[1] + ' ' + xyz_poi2[2]);
+                   // console.log('user camera : xyz_user[0] xyz_user[1] xyz_user[2]' + xyz_user[0] + ' ' + xyz_user[1] + ' ' + xyz_user[2]);
+                    //console.log('escola miramar : xyz_poi1[0] xyz_poi1[1] xyz_poi1[2]' + xyz_poi1[0] + ' ' + xyz_poi1[1] + ' ' + xyz_poi1[2]);
+                    //console.log('decathlon vilaseca : xyz_poi2[0] xyz_poi2[1] xyz_poi2[2]' + xyz_poi2[0] + ' ' + xyz_poi2[1] + ' ' + xyz_poi2[2]);
                     
                     awe.pois.add({ id:'escola_miramar', position: { x: xyz_poi1[0], y: 0, z: -1 * xyz_poi1[1] } });
                     
@@ -196,14 +210,7 @@ window.addEventListener('load', function() {
                     //var scale = 10000;
                     
                     //awe.pois.add({ id:'amposta', position: { x: poi1_lat*100000, y: 0, z: poi1_lng*100000 } });
-                    awe.pois.add({ id:'decathlon_vilaseca', position: { x: xyz_poi2[0], y: 0, z: -1 * xyz_poi2[1] } });
-                    
-            
-                    
-                    if(new_place){
-                        console.log('SALTO SALTO SALTO');    
-                        new_place = false;
-                    }
+                    awe.pois.add({ id:'decathlon_vilaseca', position: { x: xyz_poi2[0], y: 0, z: -1 * xyz_poi2[1] } });      
                     
                     awe.projections.add({ 
                         id:'id_decathlon_vilaseca1', 

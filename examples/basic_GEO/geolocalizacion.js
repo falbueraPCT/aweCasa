@@ -23,8 +23,7 @@ function initMap() {
         });
         */
         var watchID = navigator.geolocation.watchPosition(function(position) {
-            new_place = true;
-            
+
             pos = { lat: position.coords.latitude, lng: position.coords.longitude };
             //awe.povs.update({ data: { position: { x: pos.lat * 10000, y: 0, z: pos.lng * 10000 } }, where: { id: 'default' } });
             console.log('POS LAT GEOLOCALIZACION.JS --> ' + pos.lat);
