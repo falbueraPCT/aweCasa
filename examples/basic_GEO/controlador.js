@@ -80,6 +80,8 @@ window.addEventListener('load', function() {
                     }, false);                    
                     
                     // POI 1 *************************************************************
+                    xyz_poi1 = project(poi1_lat, poi1_lng, 0.0); 
+                    
                     awe.pois.add({ id:'escola_miramar', position: { x: xyz_poi1[0], y: 0, z: -1 * xyz_poi1[1] } });
                     
                     awe.projections.add({ 
@@ -108,6 +110,8 @@ window.addEventListener('load', function() {
                     }, { poi_id: 'escola_miramar' });                                        
                     
                     // POI 2 *************************************************************
+                    xyz_poi2 = project(poi2_lat, poi2_lng, 0.0);
+                    
                     awe.pois.add({ id:'decathlon_vilaseca', position: { x: xyz_poi2[0], y: 0, z: -1 * xyz_poi2[1] } });      
                     
                     awe.projections.add({ 
@@ -137,10 +141,9 @@ window.addEventListener('load', function() {
                    
                     // POI 1
                     p2 = LatLon(poi1_lat, poi1_lng);
-                    xyz_poi1 = project(poi1_lat, poi1_lng, 0.0);                                        
+                                                           
                     // POI 2
-                    p3 = LatLon(poi2_lat, poi2_lng);
-                    xyz_poi2 = project(poi2_lat, poi2_lng, 0.0);
+                    p3 = LatLon(poi2_lat, poi2_lng);                    
                     
                     projection_childPOI1 = awe.projections.view('id_escola_miramar2').get_mesh().children[0];
                     projection_paramsPOI1 = projection_childPOI1.geometry.parameters.parameters;
