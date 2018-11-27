@@ -1,4 +1,3 @@
-//var map, infoWindow;
 
 var mapa = { 
     mapaTgnTe: { 
@@ -31,34 +30,11 @@ function initMap() {
 
     mapa.mapaTgnTe.map = new google.maps.Map(document.getElementById('map'), mapaOpcions);
 
-    //map = new google.maps.Map(document.getElementById('map'), { center: {lat: -34.397, lng: 150.644}, zoom: 14 });
-
-    //infoWindow = new google.maps.InfoWindow;
-
-    // Try HTML5 geolocation.
     if (navigator.geolocation) {
         
-        /*
-        navigator.geolocation.getCurrentPosition(function(position) {                    
-            var pos = { lat: position.coords.latitude, lng: position.coords.longitude };
-            console.log('POS LAT --> ' + pos.lat);
-            console.log('POS LNG --> ' + pos.lng);            
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Ubicació trobada!');
-            infoWindow.open(map);
-            map.setCenter(pos);                    
-        }, function() {
-                handleLocationError(true, infoWindow, map.getCenter());
-        });
-        */
-        var watchID = navigator.geolocation.watchPosition(function(position) {
-            //console.log('ENTRO GEO');
+       var watchID = navigator.geolocation.watchPosition(function(position) {
             pos = { lat: position.coords.latitude, lng: position.coords.longitude };
             drawPath(pos.lat, pos.lng, poi1_lat, poi1_lng, poi2_lat, poi2_lng, mapa.mapaTgnTe);            
-            //infoWindow.setPosition(pos);
-            //infoWindow.setContent('Ubicació trobada!');
-            //infoWindow.open(map);
-            //map.setCenter(pos); 
         });
         
     } else {
