@@ -23,7 +23,7 @@ function initMap() {
         });
         */
         var watchID = navigator.geolocation.watchPosition(function(position) {
-
+            console.log('ENTRO GEO');
             pos = { lat: position.coords.latitude, lng: position.coords.longitude };        
             infoWindow.setPosition(pos);
             infoWindow.setContent('Ubicació trobada!');
