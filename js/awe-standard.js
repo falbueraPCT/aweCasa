@@ -1,6 +1,6 @@
 /*
 
-  The MIT License
+  The MIT License xx
 
   Copyright (c) 2013 Rob Manson & Malgorzata Wierzbicka, http://buildAR.com. 
   All rights reserved.
