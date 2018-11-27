@@ -100,19 +100,19 @@ function drawPath(lat1User, lon1User, latPOI1, lonPOI1, latPOI2, lonPOI2, m) {
         
         m.map.fitBounds(bnds);
         
-        m.overlay.marker1 = new google.maps.Marker({ map:m.map, position:pUser, title:'Estàs aquí!', icon:'http://maps.google.com/mapfiles/ms/icons/red-dot.png' });
-        m.overlay.marker2 = new google.maps.Marker({ map:m.map, position:pPOI1, title:'POI1!', icon:'http://maps.google.com/mapfiles/ms/icons/red.png' });
+        m.overlay.markerUser = new google.maps.Marker({ map:m.map, position:pUser, title:'Estàs aquí!', icon:'http://maps.google.com/mapfiles/ms/icons/red-dot.png' });
+        m.overlay.markerPOI1 = new google.maps.Marker({ map:m.map, position:pPOI1, title:'POI1!', icon:'http://maps.google.com/mapfiles/ms/icons/red.png' });
         m.overlay.path = new google.maps.Polyline({ map:m.map, path:[pUser, pPOI1], strokeColor:'#990000', geodesic:m.geodesic});
         
         var pPOI2 = new google.maps.LatLng(latPOI2, lonPOI2);
-        var sw = new google.maps.LatLng(Math.min(lat1User, latPOI2), Math.min(lon1User, lonPOI2));
-        var ne = new google.maps.LatLng(Math.max(lat1User, latPOI2), Math.max(lon1User, lonPOI2));
+        sw = new google.maps.LatLng(Math.min(lat1User, latPOI2), Math.min(lon1User, lonPOI2));
+        ne = new google.maps.LatLng(Math.max(lat1User, latPOI2), Math.max(lon1User, lonPOI2));
         
-        var bnds = new google.maps.LatLngBounds(sw, ne);
+        bnds = new google.maps.LatLngBounds(sw, ne);
         
         m.map.fitBounds(bnds);       
         
-        m.overlay.marker2 = new google.maps.Marker({ map:m.map, position:pPOI2, title:'POI2!', icon:'http://maps.google.com/mapfiles/ms/icons/red.png' });
+        m.overlay.markerPOI2 = new google.maps.Marker({ map:m.map, position:pPOI2, title:'POI2!', icon:'http://maps.google.com/mapfiles/ms/icons/red.png' });
         m.overlay.path = new google.maps.Polyline({ map:m.map, path:[pUser, pPOI2], strokeColor:'#990000', geodesic:m.geodesic});
         
     }
