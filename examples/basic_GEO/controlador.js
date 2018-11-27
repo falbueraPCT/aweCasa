@@ -66,9 +66,9 @@ window.addEventListener('load', function() {
                     if (gyro_plugin) {
                         gyro_plugin.enable();
                     }
-                    var mouse_plugin = awe.plugins.view('gyro');
-                    if (gyro_plugin) {
-                        gyro_plugin.enable();
+                    var mouse_plugin = awe.plugins.view('mouse');
+                    if (mouse_plugin) {
+                        mouse_plugin.enable();
                     }
 
                     awe.settings.update({data:{value: 'ar'}, where:{id: 'view_mode'}});
@@ -79,12 +79,13 @@ window.addEventListener('load', function() {
 
                     // setup some code to handle when an object is clicked/tapped
                     window.addEventListener('object_clicked', function(e) { 
-                        alert('CLICK!');
+                        alert('CLICK!1');
+                        /*
                         var p = awe.projections.view(e.detail.projection_id);
                         awe.projections.update({ // rotate clicked object by 180 degrees around x and y axes over 10 seconds
                             data:{ animation: { duration: 10 }, rotation:{ y: p.rotation.y+180, x: p.rotation.x+180 } },
                             where:{ id:e.detail.projection_id }
-                        });
+                        });*/
                     }, false);
                     
                     // Escola Miramar
