@@ -188,7 +188,7 @@ window.addEventListener('load', function() {
                       material:{ color:0xFFFFFF, transparent:true }
                     }, { poi_id: 'decathlon_vilaseca' });                          
 
-                    awe.povs.update({ data: { position: { x: xyz_user[0], y: 0, z: -1 * xyz_user[1] } }, where: { id: 'default' } });
+                    //awe.povs.update({ data: { position: { x: xyz_user[0], y: 0, z: -1 * xyz_user[1] } }, where: { id: 'default' } });
                     //******************************************** a cada canvi de posició de l'usuari
                     //if (navigator.geolocation) {
                         var test3 = navigator.geolocation.watchPosition(function(position) {                        
