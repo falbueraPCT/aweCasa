@@ -200,7 +200,7 @@ window.addEventListener('load', function() {
                         // user - poi2                        
                         dist2 = p1.distanceTo(p3);     
                         
-                        /*
+                        
                         console.log('Info USUARI-POI');
                         console.log('---------------');
                         console.log('USER pos lat --> ' + pos.lat);
@@ -214,7 +214,7 @@ window.addEventListener('load', function() {
                         console.log('Distància (m) USER-POI2 --> ' + dist2);
                         console.log('Distància (km) USER-POI2 --> ' + (dist2/1000).toPrecision(4));
                         console.log('---------------');
-                        */
+                        
                         awe.povs.update({ data: { position: { x: xyz_user[0], y: 0, z: -1 * xyz_user[1] } }, where: { id: 'default' } });                                
                         
                         projection_child = awe.projections.view('id_escola_miramar2').get_mesh().children[0];
