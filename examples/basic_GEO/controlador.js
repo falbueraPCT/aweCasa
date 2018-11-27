@@ -145,10 +145,7 @@ window.addEventListener('load', function() {
                     // POI 2
                     p3 = LatLon(poi2_lat, poi2_lng);                     
                     
-                    projection_childPOI1 = awe.projections.view('id_escola_miramar2').get_mesh().children[0];
-                    projection_paramsPOI1 = projection_childPOI1.geometry.parameters.parameters;
-                    projection_childPOI2 = awe.projections.view('id_decathlon_vilaseca2').get_mesh().children[0];
-                    projection_paramsPOI2 = projection_childPOI2.geometry.parameters.parameters;                    
+                                   
                     
                     var observerID = navigator.geolocation.watchPosition(function(position) {                        
 
@@ -162,7 +159,12 @@ window.addEventListener('load', function() {
                         // user - poi2                        
                         dist2 = p1.distanceTo(p3);     
 
-                        awe.povs.update({ data: { position: { x: xyz_user[0], y: 0, z: -1 * xyz_user[1] } }, where: { id: 'default' } });                                                            
+                        awe.povs.update({ data: { position: { x: xyz_user[0], y: 0, z: -1 * xyz_user[1] } }, where: { id: 'default' } });      
+                        
+                        projection_childPOI1 = awe.projections.view('id_escola_miramar2').get_mesh().children[0];
+                        projection_paramsPOI1 = projection_childPOI1.geometry.parameters.parameters;
+                        projection_childPOI2 = awe.projections.view('id_decathlon_vilaseca2').get_mesh().children[0];
+                        projection_paramsPOI2 = projection_childPOI2.geometry.parameters.parameters;  
                         
                         projection_childPOI1.geometry = new THREE.TextGeometry( (dist1/1000).toPrecision(2) + " KM", projection_paramsPOI1 );                        
                         projection_childPOI2.geometry = new THREE.TextGeometry( (dist2/1000).toPrecision(2) + " KM", projection_paramsPOI2 );
