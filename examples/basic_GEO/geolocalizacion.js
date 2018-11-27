@@ -51,15 +51,15 @@ function initMap() {
                 handleLocationError(true, infoWindow, map.getCenter());
         });
         */
-        var watchID = navigator.geolocation.watchPosition(function(position) {
+        //var watchID = navigator.geolocation.watchPosition(function(position) {
             //console.log('ENTRO GEO');
             pos = { lat: position.coords.latitude, lng: position.coords.longitude };
-            drawPath(pos.lat, pos.lng, poi1_lat, poi1_lng, poi2_lat, poi2_lng, mapa.mapaTgnTe);            
+           // drawPath(pos.lat, pos.lng, poi1_lat, poi1_lng, poi2_lat, poi2_lng, mapa.mapaTgnTe);            
             //infoWindow.setPosition(pos);
             //infoWindow.setContent('Ubicació trobada!');
             //infoWindow.open(map);
             //map.setCenter(pos); 
-        });
+        //});
         
     } else {
         // Browser doesn't support Geolocation
