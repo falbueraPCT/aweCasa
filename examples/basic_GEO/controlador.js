@@ -79,6 +79,7 @@ window.addEventListener('load', function() {
 
                     // setup some code to handle when an object is clicked/tapped
                     window.addEventListener('object_clicked', function(e) { 
+                        alert('CLICK!');
                         var p = awe.projections.view(e.detail.projection_id);
                         awe.projections.update({ // rotate clicked object by 180 degrees around x and y axes over 10 seconds
                             data:{ animation: { duration: 10 }, rotation:{ y: p.rotation.y+180, x: p.rotation.x+180 } },
@@ -191,11 +192,11 @@ window.addEventListener('load', function() {
                     //awe.povs.update({ data: { position: { x: xyz_user[0], y: 0, z: -1 * xyz_user[1] } }, where: { id: 'default' } });
                     //******************************************** a cada canvi de posició de l'usuari
                     //if (navigator.geolocation) {
-/*                    
-look_at_poi($poi_id) - updates pov() rotation so it faces the POI origin mesh
-look_at_projection($projection_id) - updates pov() rotation so it faces the projection mesh
-look_at($xyz)
-*/
+                    /*                    
+                    look_at_poi($poi_id) - updates pov() rotation so it faces the POI origin mesh
+                    look_at_projection($projection_id) - updates pov() rotation so it faces the projection mesh
+                    look_at($xyz)
+                    */
                         var test3 = navigator.geolocation.watchPosition(function(position) {                        
 
                             pos = { lat: position.coords.latitude, lng: position.coords.longitude };
