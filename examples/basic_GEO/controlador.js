@@ -137,7 +137,7 @@ window.addEventListener('load', function() {
                         position: {x:0, y:-70, z:190},
                         rotation:{ x:0, y:-60, z:0 },
                         material:{ color:0xFFFFFF, transparent:true }
-                    }, { poi_id: 'decathlon_vilaseca' });                          
+                    }, { poi_id: 'decathlon_vilaseca' });          
                    
                     // POI 1
                     p2 = LatLon(poi1_lat, poi1_lng);
