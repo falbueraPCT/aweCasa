@@ -190,8 +190,8 @@ window.addEventListener('load', function() {
 
                     awe.povs.update({ data: { position: { x: xyz_user[0], y: 0, z: -1 * xyz_user[1] } }, where: { id: 'default' } });
                     //******************************************** a cada canvi de posició de l'usuari
-                    if (navigator.geolocation) {
-                        var test = navigator.geolocation.watchPosition(function(position) {                        
+                    //if (navigator.geolocation) {
+                        var test3 = navigator.geolocation.watchPosition(function(position) {                        
 
                             pos = { lat: position.coords.latitude, lng: position.coords.longitude };
                             p1 = LatLon(pos.lat, pos.lng);
@@ -229,9 +229,9 @@ window.addEventListener('load', function() {
                             awe.scene_needs_rendering = 1;
 
                         });
-                    } else {
-                        console.log('ERROR controlador GEO');
-                    }
+                  //  } else {
+                   //     console.log('ERROR controlador GEO');
+                  //  }
                     //********************************************
                     
   
