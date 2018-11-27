@@ -143,9 +143,7 @@ window.addEventListener('load', function() {
                     p2 = LatLon(poi1_lat, poi1_lng);
                                                            
                     // POI 2
-                    p3 = LatLon(poi2_lat, poi2_lng);                     
-                    
-                                   
+                    p3 = LatLon(poi2_lat, poi2_lng);                                          
                     
                     var observerID = navigator.geolocation.watchPosition(function(position) {                        
 
