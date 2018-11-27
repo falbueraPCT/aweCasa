@@ -1,15 +1,44 @@
-var map, infoWindow;
+//var map, infoWindow;
 
-function initMap() {
+var mapa = { 
+    mapaTgnTe: { 
+        map: null, 
+        geodesic: true,  
+        overlay: { 
+            marker1: null, 
+            marker2: null, 
+            path: null } 
+    } 
+};
 
-    map = new google.maps.Map(document.getElementById('map'), { center: {lat: -34.397, lng: 150.644}, zoom: 14 });
+var mapaOpcions = { 
+            zoom: 0,
+            center: new google.maps.LatLng(0, 0),
+            mapTypeId: google.maps.MapTypeId.HYBRID,
+            mapTypeControlOptions: {
+                style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+            },
+            navigationControlOptions: {
+                style: google.maps.NavigationControlStyle.SMALL,
+            },
+            streetViewControl: false,
+            scaleControl: true
+    };
+    
 
-    infoWindow = new google.maps.InfoWindow;
+function initMap() {   
+        
+
+    mapa.mapaTgnTe.map = new google.maps.Map(document.getElementById('map'), mapaOpcions);
+
+    //map = new google.maps.Map(document.getElementById('map'), { center: {lat: -34.397, lng: 150.644}, zoom: 14 });
+
+    //infoWindow = new google.maps.InfoWindow;
 
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
         
-        
+        /*
         navigator.geolocation.getCurrentPosition(function(position) {                    
             var pos = { lat: position.coords.latitude, lng: position.coords.longitude };
             console.log('POS LAT --> ' + pos.lat);
@@ -21,14 +50,16 @@ function initMap() {
         }, function() {
                 handleLocationError(true, infoWindow, map.getCenter());
         });
-        
+        */
         var watchID = navigator.geolocation.watchPosition(function(position) {
-            console.log('ENTRO GEO');
-            pos = { lat: position.coords.latitude, lng: position.coords.longitude };        
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Ubicació trobada!');
-            infoWindow.open(map);
-            map.setCenter(pos); 
+            //console.log('ENTRO GEO');
+            pos = { lat: position.coords.latitude, lng: position.coords.longitude };
+            drawPath(pos.lat, pos.lng, poi1_lat, poi1_lng, mapa);
+            drawPath(pos.lat, pos.lng, poi2_lat, poi2_lng, mapa);
+            //infoWindow.setPosition(pos);
+            //infoWindow.setContent('Ubicació trobada!');
+            //infoWindow.open(map);
+            //map.setCenter(pos); 
         });
         
     } else {
@@ -41,4 +72,29 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
     infoWindow.setContent(browserHasGeolocation ? 'Error: The Geolocation service failed.' : 'Error: Your browser doesn\'t support geolocation.');
     infoWindow.open(map);
+}
+
+    
+
+
+function drawPath(lat1, lon1, lat2, lon2, m) {
+    google.maps.event.trigger(m.map, 'resize');  // Gaaaaaah!
+
+    // clear current overlays
+    if (m.overlay.marker1) { m.overlay.marker1.setMap(null); m.overlay.marker1 = null; }
+    if (m.overlay.marker2) { m.overlay.marker2.setMap(null); m.overlay.marker1 = null; }
+    if (m.overlay.path)    { m.overlay.path.setMap(null);    m.overlay.path = null; }
+
+    // if supplied lat/long are all valid numbers, draw the path
+    if (!isNaN(lat1+lon1+lat2+lon2)) {
+        var p1 = new google.maps.LatLng(lat1, lon1);
+        var p2 = new google.maps.LatLng(lat2, lon2);
+        var sw = new google.maps.LatLng(Math.min(lat1, lat2), Math.min(lon1, lon2));
+        var ne = new google.maps.LatLng(Math.max(lat1, lat2), Math.max(lon1, lon2));
+        var bnds = new google.maps.LatLngBounds(sw, ne);
+        m.map.fitBounds(bnds);
+        m.overlay.marker1 = new google.maps.Marker({ map:m.map, position:p1, title:'Estàs aquí!', icon:'http://maps.google.com/mapfiles/ms/icons/red-dot.png' });
+        m.overlay.marker2 = new google.maps.Marker({ map:m.map, position:p2, title:'POI!', icon:'http://maps.google.com/mapfiles/ms/icons/red.png' });
+        m.overlay.path = new google.maps.Polyline({ map:m.map, path:[p1, p2], strokeColor:'#990000', geodesic:m.geodesic});
+    }
 }
