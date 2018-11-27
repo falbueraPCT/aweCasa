@@ -149,9 +149,11 @@ window.addEventListener('load', function() {
                     
                     var observerID = navigator.geolocation.watchPosition(function(position) {                        
 
-                        pos = { lat: position.coords.latitude, lng: position.coords.longitude };
-                        p1 = LatLon(pos.lat, pos.lng);
-                        xyz_user = project(pos.lat, pos.lng, 0.0);
+                        //pos = { lat: position.coords.latitude, lng: position.coords.longitude };
+                        //p1 = LatLon(pos.lat, pos.lng);
+                        //xyz_user = project(pos.lat, pos.lng, 0.0);
+                        p1 = LatLon(position.coords.latitude, position.coords.longitude);
+                        xyz_user = project(position.coords.latitude, position.coords.longitude, 0.0);
                         // user - poi1                        
                         dist1 = p1.distanceTo(p2);                                           
                         // user - poi2                        
