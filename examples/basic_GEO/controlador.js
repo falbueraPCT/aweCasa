@@ -201,7 +201,6 @@ window.addEventListener('load', function() {
                             // user - poi2                        
                             dist2 = p1.distanceTo(p3);     
 
-
                             console.log('Info USUARI-POI');
                             console.log('---------------');
                             console.log('USER pos lat --> ' + pos.lat);
@@ -235,7 +234,7 @@ window.addEventListener('load', function() {
                     //********************************************
                     
   
-                    awe.scene_needs_rendering = 1;
+                  //  awe.scene_needs_rendering = 1;
 			
                 }
             },
