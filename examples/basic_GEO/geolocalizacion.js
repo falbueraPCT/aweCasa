@@ -55,7 +55,7 @@ function initMap() {
             //console.log('ENTRO GEO');
             pos = { lat: position.coords.latitude, lng: position.coords.longitude };
             drawPath(pos.lat, pos.lng, poi1_lat, poi1_lng, mapa);
-            drawPath(pos.lat, pos.lng, poi2_lat, poi2_lng, mapa);
+            //drawPath(pos.lat, pos.lng, poi2_lat, poi2_lng, mapa);
             //infoWindow.setPosition(pos);
             //infoWindow.setContent('Ubicació trobada!');
             //infoWindow.open(map);
