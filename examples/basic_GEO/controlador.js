@@ -190,44 +190,48 @@ window.addEventListener('load', function() {
 
                     awe.povs.update({ data: { position: { x: xyz_user[0], y: 0, z: -1 * xyz_user[1] } }, where: { id: 'default' } });
                     //******************************************** a cada canvi de posició de l'usuari
-                    var test = navigator.geolocation.watchPosition(function(position) {                        
+                    if (navigator.geolocation) {
+                        var test = navigator.geolocation.watchPosition(function(position) {                        
 
-                        pos = { lat: position.coords.latitude, lng: position.coords.longitude };
-                        p1 = LatLon(pos.lat, pos.lng);
-                        xyz_user = project(pos.lat, pos.lng, 0.0);
-                        // user - poi1                        
-                        dist1 = p1.distanceTo(p2);                                           
-                        // user - poi2                        
-                        dist2 = p1.distanceTo(p3);     
-                        
-                        
-                        console.log('Info USUARI-POI');
-                        console.log('---------------');
-                        console.log('USER pos lat --> ' + pos.lat);
-                        console.log('USER pos lng --> ' + pos.lng);
-                        console.log('POI 1 pos lat --> ' + poi1_lat);
-                        console.log('POI 1 pos lng --> ' + poi1_lng);
-                        console.log('Distància (m) USER-POI1 --> ' + dist1);
-                        console.log('Distància (km) USER-POI1 --> ' + (dist1/1000).toPrecision(4));
-                        console.log('POI 2 pos lat --> ' + poi2_lat);
-                        console.log('POI 2 pos lng --> ' + poi2_lng);
-                        console.log('Distància (m) USER-POI2 --> ' + dist2);
-                        console.log('Distància (km) USER-POI2 --> ' + (dist2/1000).toPrecision(4));
-                        console.log('---------------');
-                        
-                        awe.povs.update({ data: { position: { x: xyz_user[0], y: 0, z: -1 * xyz_user[1] } }, where: { id: 'default' } });                                
-                        
-                        projection_child = awe.projections.view('id_escola_miramar2').get_mesh().children[0];
-                        projection_params = projection_child.geometry.parameters.parameters;
-                        projection_child.geometry = new THREE.TextGeometry( (dist1/1000).toPrecision(2) + " KM", projection_params );
-                        
-                        projection_child = awe.projections.view('id_decathlon_vilaseca2').get_mesh().children[0];
-                        projection_params = projection_child.geometry.parameters.parameters;
-                        projection_child.geometry = new THREE.TextGeometry( (dist2/1000).toPrecision(2) + " KM", projection_params );
-                        
-                        awe.scene_needs_rendering = 1;
+                            pos = { lat: position.coords.latitude, lng: position.coords.longitude };
+                            p1 = LatLon(pos.lat, pos.lng);
+                            xyz_user = project(pos.lat, pos.lng, 0.0);
+                            // user - poi1                        
+                            dist1 = p1.distanceTo(p2);                                           
+                            // user - poi2                        
+                            dist2 = p1.distanceTo(p3);     
 
-                    });
+
+                            console.log('Info USUARI-POI');
+                            console.log('---------------');
+                            console.log('USER pos lat --> ' + pos.lat);
+                            console.log('USER pos lng --> ' + pos.lng);
+                            console.log('POI 1 pos lat --> ' + poi1_lat);
+                            console.log('POI 1 pos lng --> ' + poi1_lng);
+                            console.log('Distància (m) USER-POI1 --> ' + dist1);
+                            console.log('Distància (km) USER-POI1 --> ' + (dist1/1000).toPrecision(4));
+                            console.log('POI 2 pos lat --> ' + poi2_lat);
+                            console.log('POI 2 pos lng --> ' + poi2_lng);
+                            console.log('Distància (m) USER-POI2 --> ' + dist2);
+                            console.log('Distància (km) USER-POI2 --> ' + (dist2/1000).toPrecision(4));
+                            console.log('---------------');
+
+                            awe.povs.update({ data: { position: { x: xyz_user[0], y: 0, z: -1 * xyz_user[1] } }, where: { id: 'default' } });                                
+
+                            projection_child = awe.projections.view('id_escola_miramar2').get_mesh().children[0];
+                            projection_params = projection_child.geometry.parameters.parameters;
+                            projection_child.geometry = new THREE.TextGeometry( (dist1/1000).toPrecision(2) + " KM", projection_params );
+
+                            projection_child = awe.projections.view('id_decathlon_vilaseca2').get_mesh().children[0];
+                            projection_params = projection_child.geometry.parameters.parameters;
+                            projection_child.geometry = new THREE.TextGeometry( (dist2/1000).toPrecision(2) + " KM", projection_params );
+
+                            awe.scene_needs_rendering = 1;
+
+                        });
+                    } else {
+                        console.log('ERROR controlador GEO');
+                    }
                     //********************************************
                     
   
