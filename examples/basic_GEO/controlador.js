@@ -143,7 +143,7 @@ window.addEventListener('load', function() {
                     p2 = LatLon(poi1_lat, poi1_lng);
                                                            
                     // POI 2
-                    p3 = LatLon(poi2_lat, poi2_lng);                    
+                    p3 = LatLon(poi2_lat, poi2_lng);                     
                     
                     projection_childPOI1 = awe.projections.view('id_escola_miramar2').get_mesh().children[0];
                     projection_paramsPOI1 = projection_childPOI1.geometry.parameters.parameters;
