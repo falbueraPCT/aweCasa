@@ -14,7 +14,7 @@ var dist1, dist2;
 
 var xyz_user, xyz_poi1, xyz_poi2;
 
-var projection_childPOI1, projection_paramsPOI1, projection_childPOI2, projection_paramsPOI2;
+var projection_child, projection_params;
 
 window.addEventListener('load', function() {
     
@@ -161,13 +161,13 @@ window.addEventListener('load', function() {
 
                         awe.povs.update({ data: { position: { x: xyz_user[0], y: 0, z: -1 * xyz_user[1] } }, where: { id: 'default' } });      
                         
-                        projection_childPOI1 = awe.projections.view('id_escola_miramar2').get_mesh().children[0];
-                        projection_paramsPOI1 = projection_childPOI1.geometry.parameters.parameters;
-                        projection_childPOI2 = awe.projections.view('id_decathlon_vilaseca2').get_mesh().children[0];
-                        projection_paramsPOI2 = projection_childPOI2.geometry.parameters.parameters;  
+                        projection_child = awe.projections.view('id_escola_miramar2').get_mesh().children[0];
+                        projection_params = projection_child.geometry.parameters.parameters;
+                        projection_child.geometry = new THREE.TextGeometry( (dist1/1000).toPrecision(2) + " KM", projection_params );
                         
-                        projection_childPOI1.geometry = new THREE.TextGeometry( (dist1/1000).toPrecision(2) + " KM", projection_paramsPOI1 );                        
-                        projection_childPOI2.geometry = new THREE.TextGeometry( (dist2/1000).toPrecision(2) + " KM", projection_paramsPOI2 );
+                        projection_child = awe.projections.view('id_decathlon_vilaseca2').get_mesh().children[0];
+                        projection_params = projection_child.geometry.parameters.parameters;                                                 
+                        projection_child.geometry = new THREE.TextGeometry( (dist2/1000).toPrecision(2) + " KM", projection_params );
 
                         awe.scene_needs_rendering = 1;
 
