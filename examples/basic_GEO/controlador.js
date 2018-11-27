@@ -221,7 +221,7 @@ look_at($xyz)
                             console.log('---------------');
 
                             awe.povs.update({ data: { position: { x: xyz_user[0], y: 0, z: -1 * xyz_user[1] } }, where: { id: 'default' } });                                
-awe.povs.look_at_poi('decathlon_vilaseca');
+
                             projection_child = awe.projections.view('id_escola_miramar2').get_mesh().children[0];
                             projection_params = projection_child.geometry.parameters.parameters;
                             projection_child.geometry = new THREE.TextGeometry( (dist1/1000).toPrecision(2) + " KM", projection_params );
