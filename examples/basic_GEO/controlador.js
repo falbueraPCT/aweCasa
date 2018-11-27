@@ -231,7 +231,7 @@ window.addEventListener('load', function() {
                     //********************************************
                     
   
-
+                    //awe.scene_needs_rendering = 1;
 			
                 }
             },
