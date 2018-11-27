@@ -222,10 +222,6 @@ look_at($xyz)
                             console.log('---------------');
 */
                             awe.povs.update({ data: { position: { x: xyz_user[0], y: 0, z: -1 * xyz_user[1] } }, where: { id: 'default' } });                                
-
-                            var test11 = awe.projections.view('id_escola_miramar2').get_mesh().children[0];
-                            var test12 = awe.projections.view('id_escola_miramar2').get_mesh().children[1];
-                            var test13 = awe.projections.view('id_escola_miramar2').get_mesh().children[2];
                             
                             projection_child = awe.projections.view('id_escola_miramar2').get_mesh().children[0];
                             projection_params = projection_child.geometry.parameters.parameters;
