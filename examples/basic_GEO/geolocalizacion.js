@@ -5,13 +5,17 @@ var mapa = {
         map: null, 
         geodesic: true,  
         overlay: { 
-            marker1: null, 
-            marker2: null, 
-            path: null } 
+            markerUser: null,
+            markerPOI1: null, 
+            markerPOI2: null,            
+            path: null
+        } 
     } 
-};
+};   
 
-var mapaOpcions = { 
+function initMap() {    
+    
+    var mapaOpcions = { 
             zoom: 0,
             center: new google.maps.LatLng(0, 0),
             mapTypeId: google.maps.MapTypeId.HYBRID,
@@ -24,10 +28,6 @@ var mapaOpcions = {
             streetViewControl: false,
             scaleControl: true
     };
-    
-
-function initMap() {   
-        
 
     mapa.mapaTgnTe.map = new google.maps.Map(document.getElementById('map'), mapaOpcions);
 
@@ -54,8 +54,7 @@ function initMap() {
         var watchID = navigator.geolocation.watchPosition(function(position) {
             //console.log('ENTRO GEO');
             pos = { lat: position.coords.latitude, lng: position.coords.longitude };
-            drawPath(pos.lat, pos.lng, poi1_lat, poi1_lng, mapa);
-            //drawPath(pos.lat, pos.lng, poi2_lat, poi2_lng, mapa);
+            drawPath(pos.lat, pos.lng, poi1_lat, poi1_lng, poi2_lat, poi2_lng, mapa.mapaTgnTe);            
             //infoWindow.setPosition(pos);
             //infoWindow.setContent('Ubicació trobada!');
             //infoWindow.open(map);
@@ -64,37 +63,57 @@ function initMap() {
         
     } else {
         // Browser doesn't support Geolocation
-        handleLocationError(false, infoWindow, map.getCenter());
+        console.log('Browser no support Geolocation');
+        //handleLocationError(false, infoWindow, map.getCenter());
     }
 }
 
+/*
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
     infoWindow.setContent(browserHasGeolocation ? 'Error: The Geolocation service failed.' : 'Error: Your browser doesn\'t support geolocation.');
     infoWindow.open(map);
 }
-
+*/
     
 
 
-function drawPath(lat1, lon1, lat2, lon2, m) {
-    google.maps.event.trigger(m.map, 'resize');  // Gaaaaaah!
-
-    // clear current overlays
-    if (m.overlay.marker1) { m.overlay.marker1.setMap(null); m.overlay.marker1 = null; }
-    if (m.overlay.marker2) { m.overlay.marker2.setMap(null); m.overlay.marker1 = null; }
+function drawPath(lat1User, lon1User, latPOI1, lonPOI1, latPOI2, lonPOI2, m) {
+    
+    google.maps.event.trigger(m.map, 'resize');
+    
+    if (m.overlay.markerUser) { m.overlay.markerUser.setMap(null); m.overlay.markerUser = null; }
+    if (m.overlay.markerPOI1) { m.overlay.markerPOI1.setMap(null); m.overlay.markerPOI1 = null; }
+    if (m.overlay.markerPOI2) { m.overlay.markerPOI2.setMap(null); m.overlay.markerPOI2 = null; }
+    
     if (m.overlay.path)    { m.overlay.path.setMap(null);    m.overlay.path = null; }
 
-    // if supplied lat/long are all valid numbers, draw the path
-    if (!isNaN(lat1+lon1+lat2+lon2)) {
-        var p1 = new google.maps.LatLng(lat1, lon1);
-        var p2 = new google.maps.LatLng(lat2, lon2);
-        var sw = new google.maps.LatLng(Math.min(lat1, lat2), Math.min(lon1, lon2));
-        var ne = new google.maps.LatLng(Math.max(lat1, lat2), Math.max(lon1, lon2));
+    if (!isNaN(lat1User+lon1User+latPOI1+lonPOI1+latPOI2+lonPOI2)) {
+        
+        var pUser = new google.maps.LatLng(lat1User, lon1User);
+        var pPOI1 = new google.maps.LatLng(latPOI1, lonPOI1);        
+        
+        var sw = new google.maps.LatLng(Math.min(lat1User, latPOI1), Math.min(lon1User, lonPOI1));
+        var ne = new google.maps.LatLng(Math.max(lat1User, latPOI1), Math.max(lon1User, lonPOI1));
+        
         var bnds = new google.maps.LatLngBounds(sw, ne);
+        
         m.map.fitBounds(bnds);
-        m.overlay.marker1 = new google.maps.Marker({ map:m.map, position:p1, title:'Estàs aquí!', icon:'http://maps.google.com/mapfiles/ms/icons/red-dot.png' });
-        m.overlay.marker2 = new google.maps.Marker({ map:m.map, position:p2, title:'POI!', icon:'http://maps.google.com/mapfiles/ms/icons/red.png' });
-        m.overlay.path = new google.maps.Polyline({ map:m.map, path:[p1, p2], strokeColor:'#990000', geodesic:m.geodesic});
+        
+        m.overlay.marker1 = new google.maps.Marker({ map:m.map, position:pUser, title:'Estàs aquí!', icon:'http://maps.google.com/mapfiles/ms/icons/red-dot.png' });
+        m.overlay.marker2 = new google.maps.Marker({ map:m.map, position:pPOI1, title:'POI1!', icon:'http://maps.google.com/mapfiles/ms/icons/red.png' });
+        m.overlay.path = new google.maps.Polyline({ map:m.map, path:[pUser, pPOI1], strokeColor:'#990000', geodesic:m.geodesic});
+        
+        var pPOI2 = new google.maps.LatLng(latPOI2, lonPOI2);
+        var sw = new google.maps.LatLng(Math.min(lat1User, latPOI2), Math.min(lon1User, lonPOI2));
+        var ne = new google.maps.LatLng(Math.max(lat1User, latPOI2), Math.max(lon1User, lonPOI2));
+        
+        var bnds = new google.maps.LatLngBounds(sw, ne);
+        
+        m.map.fitBounds(bnds);       
+        
+        m.overlay.marker2 = new google.maps.Marker({ map:m.map, position:pPOI2, title:'POI2!', icon:'http://maps.google.com/mapfiles/ms/icons/red.png' });
+        m.overlay.path = new google.maps.Polyline({ map:m.map, path:[pUser, pPOI2], strokeColor:'#990000', geodesic:m.geodesic});
+        
     }
 }
