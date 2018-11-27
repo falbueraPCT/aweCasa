@@ -191,6 +191,11 @@ window.addEventListener('load', function() {
                     //awe.povs.update({ data: { position: { x: xyz_user[0], y: 0, z: -1 * xyz_user[1] } }, where: { id: 'default' } });
                     //******************************************** a cada canvi de posició de l'usuari
                     //if (navigator.geolocation) {
+/*                    
+look_at_poi($poi_id) - updates pov() rotation so it faces the POI origin mesh
+look_at_projection($projection_id) - updates pov() rotation so it faces the projection mesh
+look_at($xyz)
+*/
                         var test3 = navigator.geolocation.watchPosition(function(position) {                        
 
                             pos = { lat: position.coords.latitude, lng: position.coords.longitude };
@@ -216,7 +221,7 @@ window.addEventListener('load', function() {
                             console.log('---------------');
 
                             awe.povs.update({ data: { position: { x: xyz_user[0], y: 0, z: -1 * xyz_user[1] } }, where: { id: 'default' } });                                
-
+awe.povs.look_at_poi(decathlon_vilaseca);
                             projection_child = awe.projections.view('id_escola_miramar2').get_mesh().children[0];
                             projection_params = projection_child.geometry.parameters.parameters;
                             projection_child.geometry = new THREE.TextGeometry( (dist1/1000).toPrecision(2) + " KM", projection_params );
